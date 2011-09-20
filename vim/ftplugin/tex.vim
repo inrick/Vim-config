@@ -1,12 +1,12 @@
 " LaTeX-specific settings
 " vim-LaTeX
-set grepprg=grep\ -nh\ $*
-let g:tex_flavor="latex"
-let g:Tex_ViewRule_ps = 'okular --unique'
-let g:Tex_ViewRule_pdf = 'okular --unique'
-let g:Tex_ViewRule_dvi = 'okular --unique'
-let g:Tex_CompileRule_dvi = 'latex -src-specials -interaction=nonstopmode $*'
-let g:Tex_Leader="§"
+" set grepprg=grep\ -nh\ $*
+" let g:tex_flavor="latex"
+" let g:Tex_ViewRule_ps = 'okular --unique'
+" let g:Tex_ViewRule_pdf = 'okular --unique'
+" let g:Tex_ViewRule_dvi = 'okular --unique'
+" let g:Tex_CompileRule_dvi = 'latex -src-specials -interaction=nonstopmode $*'
+" let g:Tex_Leader="§"
 " LaTeX Box
 let g:LatexBox_viewer = 'okular --unique'
 let g:LatexBox_output_type = 'dvi'

@@ -59,7 +59,7 @@ if has("gui_running")
     set guifont=Consolas\ 11
     colors bclear
 else
-    colors molokai
+    colors bclear
 endif
 
 let mapleader = ","

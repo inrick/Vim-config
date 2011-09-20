@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " File: MapCommentLines.vim                          "
 " Description: Comment block of text using <leader>r "
-"              Decomment using <leader>t             "
+"              Uncomment using <leader>t             "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
     " Python/Perl # comments

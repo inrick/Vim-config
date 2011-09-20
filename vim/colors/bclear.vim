@@ -57,7 +57,8 @@ hi MatchParen   guifg=#ffffff   guibg=#f00078
 hi Normal       guifg=#323232   guibg=#ffffff
 hi Comment      guifg=#969696
 hi Constant     guifg=#1094a0
-hi Special      guifg=#dc6816
+hi Special      guifg=#3c960f
+" hi Special      guifg=#dc6816
 hi Identifier   guifg=#3c960f
 hi Statement    guifg=#3b6ac8                   gui=none
 hi PreProc      guifg=#294a8c
