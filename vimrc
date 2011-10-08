@@ -70,11 +70,11 @@ noremap  <silent> k      gk
 noremap  <silent> j      gj
 noremap  <silent> <Up>   gk
 noremap  <silent> <Down> gj
-noremap  <silent> <Home> g<Home>
+noremap  <silent> <Home> g^
 noremap  <silent> <End>  g<End>
 inoremap <silent> <Up>   <C-O>g<Up>
 inoremap <silent> <Down> <C-O>g<Down>
-inoremap <silent> <Home> <C-O>g<Home>
+inoremap <silent> <Home> <C-O>g^
 inoremap <silent> <End>  <C-O>g<End>
 
 " Other keyboard bindings
@@ -84,10 +84,12 @@ inoremap <silent> <Del>     <C-O>x
 noremap  <silent> <C-Tab>   :tabnext<CR>
 noremap  <silent> <C-S-Tab> :tabprevious<CR>
 noremap  <silent> <leader>n :set number!<CR>
-noremap  <silent> <leader>v :tabe ~/.vimrc<CR>
-noremap           <leader>u :source ~/.vimrc<CR>
+noremap           <leader>cd :cd %:p:h<CR>
+noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
+noremap           <leader>vu :source ~/.vimrc<CR>
 noremap  <silent> <F4>      :NERDTreeToggle<CR>
-inoremap <silent> <C-Space> <C-X><C-U><C-P>
+noremap  <silent> <leader>e :CommandT<CR>
+noremap  <silent> <leader>b :CommandTBuffer<CR>
 
 " Generic settings
 if has("autocmd")
