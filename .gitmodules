@@ -1,0 +1,18 @@
+[submodule "vim/bundle/Autoclose"]
+	path = vim/bundle/Autoclose
+	url = http://github.com/vim-scripts/AutoClose--Alves
+[submodule "vim/bundle/CSApprox"]
+	path = vim/bundle/CSApprox
+	url = http://github.com/vim-scripts/CSApprox
+[submodule "vim/bundle/LaTeX-Box"]
+	path = vim/bundle/LaTeX-Box
+	url = http://github.com/vim-scripts/LaTeX-Box
+[submodule "vim/bundle/NERD-tree"]
+	path = vim/bundle/NERD-tree
+	url = http://github.com/vim-scripts/The-NERD-tree
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = http://github.com/ervandew/supertab
+[submodule "vim/bundle/CommandT"]
+	path = vim/bundle/CommandT
+	url = http://github.com/wincent/Command-T.git
