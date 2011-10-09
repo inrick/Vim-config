@@ -3,8 +3,21 @@
 set nocompatible
 
 " Add plugins in bundle/
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+
+" Bundles
+filetype off
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'AutoClose--Alves'
+Bundle 'CSApprox'
+Bundle 'LaTeX-Box'
+Bundle 'The-NERD-tree'
+Bundle 'ervandew/supertab'
+Bundle 'wincent/Command-T.git'
+Bundle 'RemoteOpen'
 
 set nomodeline " Some security measure
 set ruler " Display cursor position
