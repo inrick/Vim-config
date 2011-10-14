@@ -12,12 +12,14 @@ set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'AutoClose--Alves'
-Bundle 'CSApprox'
+let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
+" Bundle 'CSApprox'
 Bundle 'LaTeX-Box'
 Bundle 'The-NERD-tree'
 Bundle 'ervandew/supertab'
+let g:SuperTabDefaultCompletionType = "context"
 Bundle 'wincent/Command-T.git'
-Bundle 'RemoteOpen'
+Bundle 'altercation/vim-colors-solarized'
 
 set nomodeline " Some security measure
 set ruler " Display cursor position
@@ -62,7 +64,7 @@ set foldmethod=marker " Automatically fold between {{{ and }}}
 
 syntax on
 filetype plugin indent on
-" set t_Co=256 " Enable 256 colors
+set t_Co=256 " Force 256 colors
 
 if has("gui_running")
     set guioptions-=T " No toolbar
@@ -72,7 +74,7 @@ if has("gui_running")
     set guifont=Consolas\ 11
     colors bclear
 else
-    colors bclear
+    colors bclear_csapprox
 endif
 
 let mapleader = ","
@@ -91,18 +93,18 @@ inoremap <silent> <Home> <C-O>g^
 inoremap <silent> <End>  <C-O>g<End>
 
 " Other keyboard bindings
-noremap  <silent> <C-S>     :update<CR>
-inoremap <silent> <C-S>     <C-O>:update<CR>
-inoremap <silent> <Del>     <C-O>x
-noremap  <silent> <C-Tab>   :tabnext<CR>
-noremap  <silent> <C-S-Tab> :tabprevious<CR>
-noremap  <silent> <leader>n :set number!<CR>
+noremap  <silent> <C-S>      :update<CR>
+inoremap <silent> <C-S>      <C-O>:update<CR>
+inoremap <silent> <Del>      <C-O>x
+noremap  <silent> <C-Tab>    :tabnext<CR>
+noremap  <silent> <C-S-Tab>  :tabprevious<CR>
+noremap  <silent> <leader>n  :set number!<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
-noremap  <silent> <F4>      :NERDTreeToggle<CR>
-noremap  <silent> <leader>e :CommandT<CR>
-noremap  <silent> <leader>b :CommandTBuffer<CR>
+noremap  <silent> <F4>       :NERDTreeToggle<CR>
+noremap  <silent> <leader>e  :CommandT<CR>
+noremap  <silent> <leader>b  :CommandTBuffer<CR>
 
 " Generic settings
 if has("autocmd")
@@ -126,9 +128,6 @@ if has("autocmd")
     " Omnicompletion for some file types
     autocmd FileType *         setlocal omnifunc=syntaxcomplete#Complete 
 endif
-
-" SuperTab
-let g:SuperTabDefaultCompletionType = "context"
 
 function! ToggleMouse()
     if &mouse=='a'
