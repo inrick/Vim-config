@@ -72,9 +72,13 @@ if has("gui_running")
     " set guioptions-=r " No right scrollbar
     " set guioptions-=l " No left scrollbar
     set guifont=Consolas\ 11
-    colors bclear
+    set background=light
+    colors solarized
 else
-    colors bclear_csapprox
+    set background=light
+    let g:solarized_termcolors=256
+    colors solarized
+    " colors bclear_csapprox
 endif
 
 let mapleader = ","
