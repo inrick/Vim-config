@@ -18,7 +18,7 @@ Bundle 'LaTeX-Box'
 Bundle 'The-NERD-tree'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
-Bundle 'wincent/Command-T.git'
+Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 
 set nomodeline " Some security measure
@@ -48,6 +48,7 @@ set smartcase " Case sensitive if search string contains upper case, otherwise n
 set winaltkeys=no " Do not let the menu steal the alt-key
 set list
 set listchars=tab:»· " ,trail:·
+set showbreak=↳\ 
 
 " Wrap settings
 set wrap " Wrap lines that are too long
