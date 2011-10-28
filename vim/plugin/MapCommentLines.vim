@@ -20,6 +20,6 @@ endif
 
 function! MapCommentLines(commentFormat)
     execute "noremap <silent> <buffer> <leader>r :call setline('.', substitute(getline('.'), '^\\([\\t ]*\\)\\(.*\\)', '\\1" . a:commentFormat . " \\2', ''))<CR>"
-    execute "noremap <silent> <buffer> <leader>t :call setline('.', substitute(getline('.'), '^\\([\\t ]*\\)" . a:commentFormat . " \\(.*\\)', '\\1\\2', ''))<CR>"
+    execute "noremap <silent> <buffer> <leader>t :call setline('.', substitute(getline('.'), '^\\([\\t ]*\\)" . a:commentFormat . "[ ]*\\(.*\\)', '\\1\\2', ''))<CR>"
 endfunction
 
