@@ -69,7 +69,7 @@ set t_Co=256 " Force 256 colors
 
 if has("gui_running")
     set guioptions-=T " No toolbar
-    " set guioptions-=m " No menu
+    set guioptions-=m " No menu
     " set guioptions-=r " No right scrollbar
     " set guioptions-=l " No left scrollbar
     set guifont=Consolas\ 11
