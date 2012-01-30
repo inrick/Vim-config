@@ -5,7 +5,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
     " Python/Perl # comments
-    autocmd FileType python,perl,makefile,sh,zsh,conf,sshconfig,muttrc,desktop,mplayerconf call MapCommentLines("#")
+    autocmd FileType python,perl,makefile,sh,zsh,conf,sshconfig,muttrc,desktop,modconf,mplayerconf,alsaconf call MapCommentLines("#")
     " C/C++/C#/Java // comments
     autocmd FileType c,cpp,java,javascript,php call MapCommentLines("\\/\\/")
     " Haskell -- comments
