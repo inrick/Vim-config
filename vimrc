@@ -8,7 +8,7 @@ set nocompatible
 
 " Bundles
 filetype off
-set runtimepath+=~/.vim/bundle/vundle/
+set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'AutoClose--Alves'
@@ -21,7 +21,11 @@ let g:SuperTabDefaultCompletionType = "context"
 Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 
-set nomodeline " Some security measure
+" Prepend ~/.vim to rtp since vundle messes it up
+set runtimepath-=$HOME/.vim
+set runtimepath^=$HOME/.vim
+
+set nomodeline " Security measure
 set ruler " Display cursor position
 set history=10 " Remember 10 commands in command history
 set backspace=2 " Good backspace setting
