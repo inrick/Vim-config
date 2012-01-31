@@ -2,10 +2,6 @@
 " It changes other options so put it first.
 set nocompatible
 
-" Add plugins in bundle/
-" call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
-
 " Bundles
 filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
