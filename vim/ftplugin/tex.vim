@@ -15,7 +15,8 @@ let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_latexmk_options = '-pvc -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode"'
 
 " Mappings
-noremap <silent> <buffer> <F6> :silent! !latex -src-specials -interaction=nonstopmode %<CR><CR>
+" noremap <silent> <buffer> <F6> :silent! !latex -src-specials -interaction=nonstopmode %<CR><CR>
+noremap <silent> <buffer> <F6> :silent! !pdflatex -synctex=1 -interaction=nonstopmode %<CR><CR>
 " noremap <silent> <buffer> <leader>ls :execute 'silent! !okular --unique %<.dvi\#src:'.line(".").expand("%:p")' &'<CR>
 noremap <silent> <buffer> <leader>ls :execute 'silent! !okular --unique %<.pdf\#src:'.line(".").expand("%:p")' &'<CR>
 inoremap <silent> <buffer> <F5> <C-O>:s/\([\t ]*\)\(.*\)/\1\\begin{\2}\r\1\\end{\2}<CR><C-O>k<C-O>o
