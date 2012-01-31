@@ -4,6 +4,9 @@ let g:LatexBox_viewer = 'okular --unique'
 let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_latexmk_options = '-pvc -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode"'
 
+" Add the following to okular for inverse search:
+" gvim --remote +%l "+normal %c|" %f
+
 " Mappings
 noremap <silent> <buffer> <F6> :silent! !pdflatex -synctex=1 -interaction=nonstopmode %<CR><CR>
 noremap <silent> <buffer> <leader>ls :execute 'silent! !okular --unique %<.pdf\#src:'.line(".").expand("%:p")' &'<CR>
