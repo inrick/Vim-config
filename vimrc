@@ -9,7 +9,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'AutoClose--Alves'
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
-" Bundle 'CSApprox'
 Bundle 'LaTeX-Box'
 Bundle 'The-NERD-tree'
 Bundle 'ervandew/supertab'
@@ -66,20 +65,15 @@ set foldmethod=marker " Automatically fold between {{{ and }}}
 syntax on
 filetype plugin indent on
 set t_Co=256 " Force 256 colors
+set background=light
+colors solarized
 
 if has("gui_running")
     set guioptions-=T " No toolbar
     set guioptions-=m " No menu
     " set guioptions-=r " No right scrollbar
     " set guioptions-=l " No left scrollbar
-    set guifont=Consolas\ 11
-    set background=light
-    colors solarized
-else
-    set background=light
-    let g:solarized_termcolors=256
-    colors solarized
-    " colors bclear_csapprox
+    set guifont=DejaVu\ Sans\ Mono\ 10
 endif
 
 let mapleader = ","
@@ -141,6 +135,9 @@ function! ToggleMouse()
         set mouse=a
     endif
 endfunction
+
+" LaTeX
+let g:tex_conceal="adgm"
 
 " Haskell
 " let g:haddock_browser="xdg-open"
