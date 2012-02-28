@@ -1,6 +1,7 @@
 " Use vim mode instead of vi mode.
 " It changes other options so put it first.
 set nocompatible
+set nomodeline " Security measure
 
 " Bundles
 filetype off
@@ -11,16 +12,18 @@ Bundle 'AutoClose--Alves'
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
 Bundle 'LaTeX-Box'
 Bundle 'The-NERD-tree'
+Bundle 'ddollar/nerdcommenter'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
-Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'kien/ctrlp.vim'
 
 " Prepend ~/.vim to rtp since vundle messes it up
 set runtimepath-=$HOME/.vim
 set runtimepath^=$HOME/.vim
 
-set nomodeline " Security measure
 set ruler " Display cursor position
 set history=10 " Remember 10 commands in command history
 set backspace=2 " Good backspace setting
@@ -102,8 +105,12 @@ noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
-noremap  <silent> <leader>e  :CommandT<CR>
-noremap  <silent> <leader>b  :CommandTBuffer<CR>
+nmap              <leader>r  <Plug>NERDCommenterComment
+vmap              <leader>r  <Plug>NERDCommenterComment
+nmap              <leader>t  <Plug>NERDCommenterUncomment
+vmap              <leader>t  <Plug>NERDCommenterUncomment
+nmap              <C-_>      <Plug>NERDCommenterToggle
+vmap              <C-_>      <Plug>NERDCommenterToggle
 
 " Generic settings
 if has("autocmd")
