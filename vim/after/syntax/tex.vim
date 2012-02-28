@@ -1,3 +1,5 @@
+syn match texMathSymbol '\\colon\>' contained conceal cchar=:
+syn match texMathSymbol '\\varphi\>' contained conceal cchar=φ
 syn match texMathSymbol '\\NN\>' contained conceal cchar=ℕ
 syn match texMathSymbol '\\ZZ\>' contained conceal cchar=ℤ
 syn match texMathSymbol '\\QQ\>' contained conceal cchar=ℚ
