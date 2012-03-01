@@ -11,6 +11,7 @@ let g:LatexBox_latexmk_options = '-pvc -pdflatex="pdflatex -synctex=1 -interacti
 noremap <silent> <buffer> <F6> :silent! !pdflatex -synctex=1 -interaction=nonstopmode %<CR><CR>
 noremap <silent> <buffer> <leader>ls :execute 'silent! !okular --unique %<.pdf\#src:'.line(".").expand("%:p")' &'<CR>
 inoremap <silent> <buffer> <F5> <C-O>:s/\([\t ]*\)\(.*\)/\1\\begin{\2}\r\1\\end{\2}<CR><C-O>k<C-O>o
+noremap          <buffer> <leader>gt :cd %:p:h<CR>:noautocmd vimgrep TODO **/*.tex<CR><C-o>:cw<CR>
 
 " Useful regex, bind to something?
 " Replace \[ \] with equation*: s/\([ ]*\)\\\[[ ]\(.\{-}\)\\\]/\1\\begin{equation\*}\r\1\ \ \2\r\1\\end{equation\*}/gc
