@@ -34,5 +34,5 @@ setlocal nolist " List screws up word wrap
 
 " Conceal
 " let g:tex_conceal="adgm"
-set conceallevel=2
+"set conceallevel=2
 highlight Conceal guibg=#fdf6e3 guifg=#dc322f
