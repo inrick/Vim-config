@@ -19,6 +19,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 
 " Prepend ~/.vim to rtp since vundle messes it up
 set runtimepath-=$HOME/.vim
@@ -74,9 +75,10 @@ colors solarized
 if has("gui_running")
     set guioptions-=T " No toolbar
     set guioptions-=m " No menu
-    " set guioptions-=r " No right scrollbar
-    " set guioptions-=l " No left scrollbar
-    set guifont=DejaVu\ Sans\ Mono\ 10
+    "set guioptions-=r " No right scrollbar
+    "set guioptions-=l " No left scrollbar
+    set guifont=DejaVu\ Sans\ Mono\ 11
+    "set guifont=Ubuntu\ Mono\ 12
 endif
 
 let mapleader = ","
@@ -145,9 +147,4 @@ endfunction
 
 " LaTeX
 let g:tex_conceal="adgm"
-
-" Haskell
-" let g:haddock_browser="xdg-open"
-" let g:haddock_docdir="/usr/share/doc/ghc/html/"
-" let g:haddock_indexfiledir=$HOME."/.vim/"
 
