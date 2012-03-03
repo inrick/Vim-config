@@ -74,6 +74,8 @@ colors solarized
 if has("gui_running")
     set guioptions-=T " No toolbar
     set guioptions-=m " No menu
+    set guioptions-=t " No tearoff menu
+    set guioptions-=e " No GUI tabs
     "set guioptions-=r " No right scrollbar
     "set guioptions-=l " No left scrollbar
     set guifont=Ubuntu\ Mono\ 11.5
