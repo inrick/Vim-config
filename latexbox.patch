@@ -1,5 +1,14 @@
---- vim/bundle/LaTeX-Box/ftplugin/latex-box/common.vim.1	2012-03-03 16:31:21.195320134 +0100
-+++ vim/bundle/LaTeX-Box/ftplugin/latex-box/common.vim	2012-03-03 16:41:48.252872754 +0100
+--- common.vim.orig	2012-03-03 17:52:22.396377466 +0100
++++ common.vim	2012-03-03 18:07:32.875516482 +0100
+@@ -7,7 +7,7 @@
+ " g:vim_program {{{
+ if !exists('g:vim_program')
+ 
+-	if match(&shell, '/bash$') >= 0
++	if match(&shell, '/\(ba\|z\)sh$') >= 0
+ 		let ppid = '$PPID'
+ 	else
+ 		let ppid = '$$'
 @@ -175,7 +175,7 @@
  		echomsg fnamemodify(outfile, ':.') . ' is not readable'
  		return
