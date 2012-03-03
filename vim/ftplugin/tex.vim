@@ -2,7 +2,7 @@
 let g:LatexBox_viewer = 'okular --unique'
 let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_latexmk_options = '-pvc -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape"'
-let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
+let b:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
 
 " Add the following to okular for inverse search:
 " gvim --remote +%l "+normal %c|" %f

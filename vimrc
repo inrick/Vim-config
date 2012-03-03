@@ -9,7 +9,7 @@ set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'LaTeX-Box'
-Bundle 'The-NERD-tree'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ddollar/nerdcommenter'
@@ -77,7 +77,7 @@ if has("gui_running")
     set guioptions-=t " No tearoff menu
     set guioptions-=e " No GUI tabs
     "set guioptions-=r " No right scrollbar
-    "set guioptions-=l " No left scrollbar
+    set guioptions-=L " No left scrollbar
     set guifont=Ubuntu\ Mono\ 11.5
 endif
 
@@ -125,7 +125,4 @@ function! ToggleMouse()
         set mouse=a
     endif
 endfunction
-
-" LaTeX
-let g:tex_conceal="adgm"
 
