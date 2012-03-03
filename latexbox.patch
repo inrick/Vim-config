@@ -1,0 +1,11 @@
+--- vim/bundle/LaTeX-Box/ftplugin/latex-box/common.vim.1	2012-03-03 16:31:21.195320134 +0100
++++ vim/bundle/LaTeX-Box/ftplugin/latex-box/common.vim	2012-03-03 16:41:48.252872754 +0100
+@@ -175,7 +175,7 @@
+ 		echomsg fnamemodify(outfile, ':.') . ' is not readable'
+ 		return
+ 	endif
+-	let cmd = '!' . g:LatexBox_viewer . ' ' . shellescape(outfile) . ' >&/dev/null &'
++	let cmd = '!' . g:LatexBox_viewer . ' ' . shellescape(outfile) . '\#src:' . line(".") . expand("%:p") . ' >&/dev/null &'
+ 	silent execute cmd
+ 	if !has("gui_running")
+ 		redraw!
