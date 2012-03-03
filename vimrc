@@ -54,7 +54,7 @@ set showbreak=↳\
 
 " Wrap settings
 set wrap " Wrap lines that are too long
-set formatoptions=l
+set formatoptions+=l
 set linebreak " Wrap word instead of characters
 set display+=lastline " Show part of a long line if it doesn't fit
 
@@ -102,10 +102,12 @@ inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
 noremap  <silent> <C-Tab>    :tabnext<CR>
 noremap  <silent> <C-S-Tab>  :tabprevious<CR>
-noremap  <silent> <leader>n  :set number!<CR>
+noremap           <leader>nn :set number!<CR>
+noremap           <leader>nm :call ToggleMouse()<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
+noremap  <silent> <leader>nt :NERDTreeToggle<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
 nmap              <leader>r  <Plug>NERDCommenterComment
 vmap              <leader>r  <Plug>NERDCommenterComment
@@ -113,10 +115,6 @@ nmap              <leader>t  <Plug>NERDCommenterUncomment
 vmap              <leader>t  <Plug>NERDCommenterUncomment
 nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
-
-"autocmd FileType *     set formatoptions=tcql  nocindent
-"autocmd FileType *     setlocal nocindent
-"autocmd FileType *     setlocal nosmartindent
 
 function! ToggleMouse()
     if &mouse=='a'

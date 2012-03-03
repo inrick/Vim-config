@@ -27,7 +27,7 @@ setlocal tabstop=2
 setlocal shiftwidth=2
 setlocal softtabstop=2
 setlocal spell spelllang=en,sv
-setlocal textwidth=80
+"setlocal textwidth=80
 setlocal nolist " List screws up word wrap
 
 " Conceal
