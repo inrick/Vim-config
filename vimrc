@@ -8,18 +8,17 @@ filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'AutoClose--Alves'
-let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
 Bundle 'LaTeX-Box'
 Bundle 'The-NERD-tree'
+Bundle 'Townk/vim-autoclose'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
 
 " Prepend ~/.vim to rtp since vundle messes it up
 set runtimepath-=$HOME/.vim
@@ -77,8 +76,7 @@ if has("gui_running")
     set guioptions-=m " No menu
     "set guioptions-=r " No right scrollbar
     "set guioptions-=l " No left scrollbar
-    set guifont=DejaVu\ Sans\ Mono\ 11
-    "set guifont=Ubuntu\ Mono\ 12
+    set guifont=Ubuntu\ Mono\ 11.5
 endif
 
 let mapleader = ","
@@ -114,28 +112,9 @@ vmap              <leader>t  <Plug>NERDCommenterUncomment
 nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
 
-" Generic settings
-if has("autocmd")
-    autocmd FileType c         noremap <silent> <buffer> <F6> :!gcc -O2 -std=gnu99 -c -Wall %<CR>
-    autocmd FileType cpp       noremap <silent> <buffer> <F6> :!g++ -O2 %<CR>
-    autocmd FileType haskell   noremap <silent> <buffer> <F6> :!ghc %<CR>
-    autocmd FileType haskell   noremap <silent> <buffer> <F7> :!ghci %<CR>
-    autocmd FileType java      noremap <silent> <buffer> <F6> :!javac %<CR>
-    autocmd FileType java      noremap <silent> <buffer> <F7> :!java %<.java<CR>
-
-    " C/C++
-    " autocmd FileType c,cpp     setlocal foldmethod=syntax
-    " autocmd FileType c,cpp     setlocal foldnestmax=1
-
-    " Different format options
-    "autocmd FileType *          set formatoptions=tcql  nocindent
-    autocmd FileType *         setlocal nocindent
-    autocmd FileType *         setlocal nosmartindent
-    autocmd FileType c,cpp,php setlocal cindent
-
-    " Omnicompletion for some file types
-    autocmd FileType *         setlocal omnifunc=syntaxcomplete#Complete 
-endif
+"autocmd FileType *     set formatoptions=tcql  nocindent
+"autocmd FileType *     setlocal nocindent
+"autocmd FileType *     setlocal nosmartindent
 
 function! ToggleMouse()
     if &mouse=='a'
