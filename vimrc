@@ -8,15 +8,15 @@ filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'LaTeX-Box'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Townk/vim-autoclose'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
+Bundle 'LaTeX-Box'
+Bundle 'scrooloose/nerdtree'
+Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 
