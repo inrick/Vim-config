@@ -33,7 +33,7 @@ set tabstop=4
 set shiftwidth=4 " Auto-indent by this much
 set softtabstop=4 " It kind of reads 4 spaces as a TAB character
 set number " Line numbers
-set showmatch " Hilight matching braces/parantheses/brackets
+set showmatch " Hilight matching braces/parenthesis/brackets
 set mouse=a " Enable mouse support
 set visualbell t_vb= " No beep
 set novisualbell " Turn off visual bell
@@ -51,6 +51,7 @@ set winaltkeys=no " Do not let the menu steal the alt-key
 set list
 set listchars=tab:»· " ,trail:·
 set showbreak=↳\ 
+set spell spelllang=en
 
 " Wrap settings
 set wrap " Wrap lines that are too long
@@ -100,8 +101,8 @@ inoremap <silent> <End>  <C-O>g<End>
 noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
-noremap  <silent> <C-Tab>    :tabnext<CR>
-noremap  <silent> <C-S-Tab>  :tabprevious<CR>
+"noremap  <silent> <C-Tab>    :tabnext<CR>
+"noremap  <silent> <C-S-Tab>  :tabprevious<CR>
 noremap           <leader>nn :set number!<CR>
 noremap           <leader>nm :call ToggleMouse()<CR>
 noremap           <leader>cd :cd %:p:h<CR>
