@@ -15,6 +15,14 @@ let g:SuperTabDefaultCompletionType = "context"
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 Bundle 'LaTeX-Box'
+Bundle 'mikewest/vimroom'
+let g:vimroom_width = 105
+let g:vimroom_navigation_keys = 0
+let g:vimroom_clear_line_numbers = 1
+let g:vimroom_sidebar_height = 0
+let g:vimroom_scrolloff = 5
+let g:vimroom_guibackground = '#fdf6e3'
+let g:vimroom_ctermbackground = 'bg'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-fugitive'
