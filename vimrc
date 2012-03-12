@@ -111,7 +111,7 @@ inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
 "noremap  <silent> <C-Tab>    :tabnext<CR>
 "noremap  <silent> <C-S-Tab>  :tabprevious<CR>
-noremap           <leader>nn :set number!<CR>
+noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>nm :call ToggleMouse()<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
