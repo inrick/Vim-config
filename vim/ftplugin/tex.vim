@@ -17,7 +17,7 @@ let b:SuperTabCompletionContexts = ['LatexContext', 's:ContextText']
 " Add the following to okular for inverse search:
 " gvim --remote +%l "+normal %c|" %f
 
-noremap  <silent> <buffer> <F6> :silent! !pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %<CR><CR>
+noremap  <silent> <buffer> <F6> :cd %:p:h<CR>:silent! !pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %<CR>
 noremap  <silent> <buffer> <leader>ls :execute 'silent! !okular --unique %<.pdf\#src:'.line(".").expand("%:p")' &'<CR>
 noremap           <buffer> <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO/j **/*.tex<CR>:cw<CR>
 " 'ko' is used instead of 'O' below for correct indentation
