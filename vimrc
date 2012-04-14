@@ -1,9 +1,7 @@
-" Use vim mode instead of vi mode.
-" It changes other options so put it first.
-set nocompatible
-set nomodeline " Security measure
+set nocompatible " use vim mode instead of vi mode, changes other options so put it first
+set nomodeline   " security measure
 
-" Bundles
+" bundles
 filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
@@ -28,57 +26,51 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 
-" Prepend ~/.vim to rtp since vundle messes it up
+" prepend ~/.vim to rtp since vundle messes it up
 set runtimepath-=$HOME/.vim
 set runtimepath^=$HOME/.vim
 
-set ruler " Display cursor position
-set history=10 " Remember 10 commands in command history
-set backspace=2 " Good backspace setting
-set dir=~/.swp " set .swp-file directory
-set expandtab " Insert spaces when tab is pressed
-set tabstop=4
-set shiftwidth=4 " Auto-indent by this much
-set softtabstop=4 " It kind of reads 4 spaces as a TAB character
-set number " Line numbers
-set showmatch " Hilight matching braces/parenthesis/brackets
-set mouse=a " Enable mouse support
-set visualbell t_vb= " No beep
-set novisualbell " Turn off visual bell
-set noerrorbells " Don't make any noise
-set scrolloff=3 " Scroll when cursor is near an edge
-set showcmd " Show (partial) command in the last line of the screen
-set wildmenu " Turn on completion menu
-set wildmode=list,full " List first, then autocomplete
-set incsearch " Incremental search
-set ignorecase " Ignore case when searching
-set smartcase " Case sensitive if search string contains upper case, otherwise not
-" set hlsearch " Hilight search
-" set cursorline " Highlight current line
-set winaltkeys=no " Do not let the menu steal the alt-key
+set ruler              " cursor position
+set history=10
+set backspace=2        " good backspace setting
+set dir=~/.swp         " .swp-file directory
+set expandtab          " spaces instead of tabs
+set tabstop=8          " show tab as this many spaces
+set shiftwidth=2       " number of spaces to indent
+set softtabstop=2      " insert this many spaces when pressing tab
+set number             " line numbers
+set showmatch          " hilight matching braces/parenthesis/brackets
+set mouse=a            " mouse support
+set visualbell t_vb=   " no beep or flash
+set scrolloff=3        " scroll when cursor is this near an edge
+set showcmd
+set wildmenu           " enhanced completion
+set wildmode=list,full " list first, then autocomplete
+set incsearch          " incremental search
+set ignorecase         " ignore case when searching
+set smartcase          " override ignorecase if search string contains uppercase
+set hlsearch
+" set cursorline         " highlight current line
+set winaltkeys=no      " do not let the menu steal the alt-key
 set list
-set listchars=tab:»· " ,trail:·
-set showbreak=↳\ 
+set listchars=tab:»·,trail:·
 set spell spelllang=en
-
-" Wrap settings
-set wrap " Wrap lines that are too long
+set wrap
 set formatoptions+=l
-set linebreak " Wrap word instead of characters
-set display+=lastline " Show part of a long line if it doesn't fit
-
-" Folding setting
-set foldmethod=marker " Automatically fold between {{{ and }}}
+set linebreak          " wrap at characters in 'breakat'
+set showbreak=↳\ 
+set display+=lastline  " show part of a long line if it does not fit
+set foldmethod=marker  " fold between {{{ and }}}
 " set foldlevel=0
-" set foldnestmax=2 " Don't fold too many levels
-" Map F to change between fold all/none
+" set foldnestmax=2
+" map F to change between fold all/none
 " noremap F :let &foldenable = !&foldenable<CR>
 
 syntax on
 filetype plugin indent on
-set t_Co=256 " Force 256 colors
+set t_Co=256          " force 256 colors
 set background=light
-colors solarized
+colorscheme solarized
 
 if has("gui_running")
     set guioptions-=T " No toolbar
@@ -93,7 +85,7 @@ endif
 let mapleader = ","
 let maplocalleader = ","
 
-" Fix navigation issues with wrapped lines 
+" fix navigation issues with wrapped lines
 noremap  <silent> k      gk
 noremap  <silent> j      gj
 noremap  <silent> <Up>   gk
@@ -105,12 +97,10 @@ inoremap <silent> <Down> <C-O>g<Down>
 inoremap <silent> <Home> <C-O>g^
 inoremap <silent> <End>  <C-O>g<End>
 
-" Other keyboard bindings
+" other keyboard bindings
 noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
-"noremap  <silent> <C-Tab>    :tabnext<CR>
-"noremap  <silent> <C-S-Tab>  :tabprevious<CR>
 noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>nm :call ToggleMouse()<CR>
 noremap           <leader>cd :cd %:p:h<CR>
@@ -124,6 +114,7 @@ nmap              <leader>t  <Plug>NERDCommenterUncomment
 vmap              <leader>t  <Plug>NERDCommenterUncomment
 nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
+nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 
 function! ToggleMouse()
     if &mouse=='a'
