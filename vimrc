@@ -30,7 +30,7 @@ Bundle 'tpope/vim-surround'
 set runtimepath-=$HOME/.vim
 set runtimepath^=$HOME/.vim
 
-set ruler              " cursor position
+set ruler              " show cursor position
 set history=10
 set backspace=2        " good backspace setting
 set dir=~/.swp         " .swp-file directory
@@ -38,7 +38,7 @@ set expandtab          " spaces instead of tabs
 set tabstop=8          " show tab as this many spaces
 set shiftwidth=2       " number of spaces to indent
 set softtabstop=2      " insert this many spaces when pressing tab
-set number             " line numbers
+set number             " show line numbers
 set showmatch          " hilight matching braces/parenthesis/brackets
 set mouse=a            " mouse support
 set visualbell t_vb=   " no beep or flash
@@ -63,22 +63,20 @@ set display+=lastline  " show part of a long line if it does not fit
 set foldmethod=marker  " fold between {{{ and }}}
 " set foldlevel=0
 " set foldnestmax=2
-" map F to change between fold all/none
-" noremap F :let &foldenable = !&foldenable<CR>
 
 syntax on
 filetype plugin indent on
-set t_Co=256          " force 256 colors
+set t_Co=256           " force 256 colors
 set background=light
 colorscheme solarized
 
 if has("gui_running")
-    set guioptions-=T " No toolbar
-    set guioptions-=m " No menu
-    set guioptions-=t " No tearoff menu
-    set guioptions-=e " No GUI tabs
-    "set guioptions-=r " No right scrollbar
-    set guioptions-=L " No left scrollbar
+    set guioptions-=T  " no toolbar
+    set guioptions-=m  " no menu
+    set guioptions-=t  " no tearoff menu
+    set guioptions-=e  " no gui tabs
+    set guioptions-=L  " no left scrollbar
+    "set guioptions-=r  " no right scrollbar
     set guifont=Ubuntu\ Mono\ 11.5
 endif
 
@@ -102,7 +100,6 @@ noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
 noremap  <silent> <leader>nn :set number!<CR>
-noremap           <leader>nm :call ToggleMouse()<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
@@ -115,12 +112,4 @@ vmap              <leader>t  <Plug>NERDCommenterUncomment
 nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
-
-function! ToggleMouse()
-    if &mouse=='a'
-        set mouse=
-    else
-        set mouse=a
-    endif
-endfunction
 
