@@ -8,10 +8,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ddollar/nerdcommenter'
+Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
+let g:ctrlp_max_files = 5000
 Bundle 'LaTeX-Box'
 Bundle 'mikewest/vimroom'
 let g:vimroom_width = 105
@@ -41,7 +43,8 @@ set softtabstop=2      " insert this many spaces when pressing tab
 set number             " show line numbers
 set showmatch          " hilight matching braces/parenthesis/brackets
 set mouse=a            " mouse support
-set visualbell t_vb=   " no beep or flash
+set novisualbell
+set t_vb=              " no beep or flash
 set scrolloff=3        " scroll when cursor is this near an edge
 set showcmd
 set wildmenu           " enhanced completion
@@ -53,8 +56,9 @@ set hlsearch
 " set cursorline         " highlight current line
 set winaltkeys=no      " do not let the menu steal the alt-key
 set list
-set listchars=tab:»·,trail:·
-set spell spelllang=en
+set listchars=tab:»\ 
+"set listchars+=trail:· " show trailing space
+set spell spelllang=en,sv
 set wrap
 set formatoptions+=l
 set linebreak          " wrap at characters in 'breakat'
@@ -77,7 +81,7 @@ if has("gui_running")
     set guioptions-=e  " no gui tabs
     set guioptions-=L  " no left scrollbar
     "set guioptions-=r  " no right scrollbar
-    set guifont=Ubuntu\ Mono\ 11.5
+    set guifont=Ubuntu\ Mono\ 12
 endif
 
 let mapleader = ","
@@ -103,6 +107,7 @@ noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
+nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap  <silent> <leader>nt :NERDTreeToggle<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
 nmap              <leader>r  <Plug>NERDCommenterComment
@@ -111,5 +116,8 @@ nmap              <leader>t  <Plug>NERDCommenterUncomment
 vmap              <leader>t  <Plug>NERDCommenterUncomment
 nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
-nnoremap <silent> <CR>       :nohlsearch<CR><CR>
+nmap              <leader>a= :Tabularize /=<CR>
+vmap              <leader>a= :Tabularize /=<CR>
+nmap              <leader>a, :Tabularize /,\zs<CR>
+vmap              <leader>a, :Tabularize /,\zs<CR>
 
