@@ -7,6 +7,7 @@ set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
