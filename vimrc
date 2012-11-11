@@ -16,6 +16,8 @@ Bundle 'kien/ctrlp.vim'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_max_files = 5000
 Bundle 'LaTeX-Box'
+Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_colorscheme = 'solarized'
 Bundle 'mikewest/vimroom'
 let g:vimroom_width = 105
 let g:vimroom_navigation_keys = 0
@@ -42,6 +44,7 @@ set tabstop=8          " show tab as this many spaces
 set shiftwidth=2       " number of spaces to indent
 set softtabstop=2      " insert this many spaces when pressing tab
 set number             " show line numbers
+set laststatus=2       " always show the status bar
 set showmatch          " hilight matching braces/parenthesis/brackets
 set mouse=a            " mouse support
 set novisualbell
