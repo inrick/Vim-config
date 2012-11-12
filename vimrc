@@ -1,5 +1,6 @@
 set nocompatible " use vim mode instead of vi mode, changes other options so put it first
 set nomodeline   " security measure
+set encoding=utf-8 " force utf-8
 
 " bundles
 filetype off
@@ -13,10 +14,10 @@ Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "context"
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_max_files = 5000
 Bundle 'LaTeX-Box'
 Bundle 'Lokaltog/vim-powerline'
+let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'solarized'
 Bundle 'mikewest/vimroom'
 let g:vimroom_width = 105
@@ -84,8 +85,8 @@ if has("gui_running")
     set guioptions-=t  " no tearoff menu
     set guioptions-=e  " no gui tabs
     set guioptions-=L  " no left scrollbar
-    "set guioptions-=r  " no right scrollbar
-    set guifont=Ubuntu\ Mono\ 12
+    set guioptions-=r  " no right scrollbar
+    set guifont=Ubuntu\ Mono\ For\ Powerline\ 12
 endif
 
 let mapleader = ","
