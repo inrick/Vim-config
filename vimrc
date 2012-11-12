@@ -8,7 +8,6 @@ set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
@@ -140,3 +139,10 @@ let g:vimroom_scrolloff          = 5
 let g:vimroom_guibackground      = '#fdf6e3'
 let g:vimroom_ctermbackground    = 'bg'
 
+" Highlight trailing whitespace
+" Taken from https://github.com/bronson/vim-trailing-whitespace but changed the
+" color to match solarized
+highlight ExtraWhitespace ctermbg=darkred guibg=#CC4B43
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
