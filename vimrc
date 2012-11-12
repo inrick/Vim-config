@@ -52,7 +52,7 @@ set list
 set listchars=tab:»\ 
 
 set wrap
-set showbreak=↳\
+set showbreak=↳\ 
 set formatoptions+=l
 set linebreak
 set textwidth=80      " Break lines at this width
