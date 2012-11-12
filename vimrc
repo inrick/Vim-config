@@ -1,8 +1,8 @@
-set nocompatible " use vim mode instead of vi mode, changes other options so put it first
-set nomodeline   " security measure
-set encoding=utf-8 " force utf-8
+set nocompatible   " No Vi-compatibility, changes other options so put it first
+set nomodeline     " Security measure, do not apply file specific settings
+set encoding=utf-8 " Force utf-8
 
-" bundles
+" Setup plugins with vundle
 filetype off
 set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
@@ -12,87 +12,83 @@ Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
-let g:SuperTabDefaultCompletionType = "context"
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_max_files = 5000
 Bundle 'LaTeX-Box'
 Bundle 'Lokaltog/vim-powerline'
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'solarized'
 Bundle 'mikewest/vimroom'
-let g:vimroom_width = 105
-let g:vimroom_navigation_keys = 0
-let g:vimroom_clear_line_numbers = 1
-let g:vimroom_sidebar_height = 0
-let g:vimroom_scrolloff = 5
-let g:vimroom_guibackground = '#fdf6e3'
-let g:vimroom_ctermbackground = 'bg'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 
-" prepend ~/.vim to rtp since vundle messes it up
+" Prepend ~/.vim to rtp since vundle messes it up. We want ~/.vim first so that
+" new words are added to the spell files in the correct path.
 set runtimepath-=$HOME/.vim
 set runtimepath^=$HOME/.vim
 
-set ruler              " show cursor position
-set history=10
-set backspace=2        " good backspace setting
-set dir=~/.swp         " .swp-file directory
-set expandtab          " spaces instead of tabs
-set tabstop=8          " show tab as this many spaces
-set shiftwidth=2       " number of spaces to indent
-set softtabstop=2      " insert this many spaces when pressing tab
-set number             " show line numbers
-set laststatus=2       " always show the status bar
-set showmatch          " hilight matching braces/parenthesis/brackets
-set mouse=a            " mouse support
-set novisualbell
-set t_vb=              " no beep or flash
-set scrolloff=3        " scroll when cursor is this near an edge
+set ruler
 set showcmd
-set wildmenu           " enhanced completion
-set wildmode=list,full " list first, then autocomplete
-set incsearch          " incremental search
-set ignorecase         " ignore case when searching
-set smartcase          " override ignorecase if search string contains uppercase
+set laststatus=2 " Always show the status bar
+set history=10
+set dir=~/.swp
+set backspace=indent,eol,start
+set number       " Show line numbers
+set showmatch    " Highlight matching parenthesis/brackets/braces
+set mouse=a      " Mouse support
+set scrolloff=3  " Scroll when cursor is this near an edge
+set cursorline   " Highlight current line
+set spell spelllang=en,sv
+
+set incsearch
 set hlsearch
-" set cursorline         " highlight current line
-set winaltkeys=no      " do not let the menu steal the alt-key
+set ignorecase " Ignore case when searching
+set smartcase  " Override ignorecase if search string contains uppercase
+
+set expandtab     " Insert spaces instead of tabs
+set softtabstop=2 " Insert this many spaces when pressing tab
+set shiftwidth=2  " Number of spaces to indent
+set tabstop=8     " Show tab as this many spaces
+
 set list
 set listchars=tab:»\ 
-"set listchars+=trail:· " show trailing space
-set spell spelllang=en,sv
+
 set wrap
+set showbreak=↳\
 set formatoptions+=l
-set linebreak          " wrap at characters in 'breakat'
-set showbreak=↳\ 
-set display+=lastline  " show part of a long line if it does not fit
-set foldmethod=marker  " fold between {{{ and }}}
+set linebreak
+set textwidth=80      " Break lines at this width
+set display+=lastline " Show part of a long line if it does not fit
+
+set foldmethod=marker " Fold between {{{ and }}}
 " set foldlevel=0
 " set foldnestmax=2
 
+set wildmenu
+set wildmode=list,full
+
 syntax on
 filetype plugin indent on
-set t_Co=256           " force 256 colors
+set novisualbell
+set t_vb=
+set t_Co=256 " Force 256 colors
 set background=light
 colorscheme solarized
 
 if has("gui_running")
-    set guioptions-=T  " no toolbar
-    set guioptions-=m  " no menu
-    set guioptions-=t  " no tearoff menu
-    set guioptions-=e  " no gui tabs
-    set guioptions-=L  " no left scrollbar
-    set guioptions-=r  " no right scrollbar
-    set guifont=Ubuntu\ Mono\ For\ Powerline\ 12
+  set guioptions-=T " No toolbar
+  set guioptions-=m " No menu
+  set guioptions-=t " No tearoff menu
+  set guioptions-=e " No gui tabs
+  set guioptions-=L " No left scrollbar
+  set guioptions-=r " No right scrollbar
+  set winaltkeys=no " Do not let the menu steal the alt-key
+  set guifont=Ubuntu\ Mono\ For\ Powerline\ 12
 endif
 
-let mapleader = ","
+let mapleader      = ","
 let maplocalleader = ","
 
-" fix navigation issues with wrapped lines
+" Fix navigation issues with wrapped lines
 noremap  <silent> k      gk
 noremap  <silent> j      gj
 noremap  <silent> <Up>   gk
@@ -104,7 +100,6 @@ inoremap <silent> <Down> <C-O>g<Down>
 inoremap <silent> <Home> <C-O>g^
 inoremap <silent> <End>  <C-O>g<End>
 
-" other keyboard bindings
 noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
@@ -114,6 +109,8 @@ noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
+
+" Plugin mappings
 noremap  <silent> <leader>nt :NERDTreeToggle<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
 nmap              <leader>r  <Plug>NERDCommenterComment
@@ -126,4 +123,20 @@ nmap              <leader>a= :Tabularize /=<CR>
 vmap              <leader>a= :Tabularize /=<CR>
 nmap              <leader>a, :Tabularize /,\zs<CR>
 vmap              <leader>a, :Tabularize /,\zs<CR>
+
+" Plugin settings
+let g:SuperTabDefaultCompletionType = "context"
+
+let g:ctrlp_max_files = 5000
+
+let g:Powerline_symbols     = 'fancy'
+let g:Powerline_colorscheme = 'solarized'
+
+let g:vimroom_width              = 105
+let g:vimroom_navigation_keys    = 0
+let g:vimroom_clear_line_numbers = 1
+let g:vimroom_sidebar_height     = 0
+let g:vimroom_scrolloff          = 5
+let g:vimroom_guibackground      = '#fdf6e3'
+let g:vimroom_ctermbackground    = 'bg'
 
