@@ -36,7 +36,7 @@ set showmatch    " Highlight matching parenthesis/brackets/braces
 set mouse=a      " Mouse support
 set scrolloff=3  " Scroll when cursor is this near an edge
 set cursorline   " Highlight current line
-set spell spelllang=en,sv
+set spell spelllang=en
 
 set incsearch
 set hlsearch
