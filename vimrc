@@ -112,6 +112,7 @@ noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
 noremap           <leader>vu :source ~/.vimrc<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
+noremap           <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 noremap  <silent> <leader>nt :NERDTreeToggle<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
 nmap              <leader>r  <Plug>NERDCommenterComment

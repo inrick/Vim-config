@@ -19,7 +19,7 @@ let b:SuperTabCompletionContexts = ['LatexContext', 's:ContextText']
 
 noremap  <silent> <buffer> <F6> :cd %:p:h<CR>:silent! !pdflatex -synctex=1 -interaction=nonstopmode -shell-escape %<CR>
 noremap  <silent> <buffer> <leader>ls :execute 'silent! !okular --unique %<.pdf\#src:'.line(".").expand("%:p")' &'<CR>
-noremap           <buffer> <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO/j **/*.tex<CR>:cw<CR>
+"noremap           <buffer> <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO/j **/*.tex<CR>:cw<CR>
 " 'ko' is used instead of 'O' below for correct indentation
 inoremap <silent> <buffer> <F5> <Esc>:s/\([\t ]*\)\(.*\)/\1\\begin{\2}\r\1\\end{\2}<CR>:let @/ = ""<CR>ko
 inoremap          <buffer> <C-S-Up> ^{}<Left>
