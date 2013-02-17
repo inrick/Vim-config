@@ -120,8 +120,8 @@ nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
 nmap              <leader>a= :Tabularize /=<CR>
 vmap              <leader>a= :Tabularize /=<CR>
-nmap              <leader>a, :Tabularize /,\zs<CR>
-vmap              <leader>a, :Tabularize /,\zs<CR>
+nmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
+vmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
 
 " Plugin settings
 let g:SuperTabDefaultCompletionType = "context"
