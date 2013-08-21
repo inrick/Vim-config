@@ -55,7 +55,8 @@ set wrap
 set showbreak=↳\ 
 set formatoptions+=l
 set linebreak
-set textwidth=80      " Break lines at this width
+set textwidth=79      " Break lines at this width
+set colorcolumn=+1    " Show vertical line after the textwidth
 set display+=lastline " Show part of a long line if it does not fit
 
 set foldmethod=marker " Fold between {{{ and }}}
