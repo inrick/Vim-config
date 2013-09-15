@@ -8,12 +8,12 @@ set runtimepath+=$HOME/.vim/bundle/vundle
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
 Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'mikewest/vimroom'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
@@ -82,7 +82,7 @@ if has("gui_running")
   set guioptions-=L " No left scrollbar
   set guioptions-=r " No right scrollbar
   set winaltkeys=no " Do not let the menu steal the alt-key
-  set guifont=Ubuntu\ Mono\ For\ Powerline\ 12
+  set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
 endif
 
 let mapleader      = ","
@@ -131,8 +131,7 @@ let g:SuperTabDefaultCompletionType = "context"
 
 let g:ctrlp_max_files = 5000
 
-let g:Powerline_symbols     = 'fancy'
-let g:Powerline_colorscheme = 'solarized'
+let g:airline_powerline_fonts = 1
 
 let g:vimroom_width              = 105
 let g:vimroom_navigation_keys    = 0
