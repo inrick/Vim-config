@@ -32,7 +32,8 @@ set laststatus=2 " Always show the status bar
 set history=10
 set dir=~/.swp
 set backspace=indent,eol,start
-set number       " Show line numbers
+set number
+set relativenumber
 set showmatch    " Highlight matching parenthesis/brackets/braces
 set mouse=a      " Mouse support
 set scrolloff=3  " Scroll when cursor is this near an edge
