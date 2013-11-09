@@ -88,7 +88,7 @@ if has("gui_running")
 endif
 
 let mapleader      = ","
-let maplocalleader = ","
+let maplocalleader = "\\"
 
 " Fix navigation issues with wrapped lines
 noremap  <silent> k      gk
