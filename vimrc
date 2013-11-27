@@ -90,18 +90,6 @@ endif
 let mapleader      = ","
 let maplocalleader = "\\"
 
-" Fix navigation issues with wrapped lines
-noremap  <silent> k      gk
-noremap  <silent> j      gj
-noremap  <silent> <Up>   gk
-noremap  <silent> <Down> gj
-noremap  <silent> <Home> g^
-noremap  <silent> <End>  g<End>
-inoremap <silent> <Up>   <C-O>g<Up>
-inoremap <silent> <Down> <C-O>g<Down>
-inoremap <silent> <Home> <C-O>g^
-inoremap <silent> <End>  <C-O>g<End>
-
 noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
