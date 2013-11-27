@@ -129,6 +129,7 @@ vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 let g:SuperTabDefaultCompletionType = "context"
 
 let g:ctrlp_max_files = 5000
+let g:ctrlp_extensions = ['tag']
 
 let g:airline_powerline_fonts = 1
 
