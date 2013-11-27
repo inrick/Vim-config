@@ -107,7 +107,7 @@ noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
 noremap           <leader>vu :source $MYVIMRC<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
-noremap           <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
+noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 
 " Plugin mappings
 noremap  <silent> <leader>nt :NERDTreeToggle<CR>
