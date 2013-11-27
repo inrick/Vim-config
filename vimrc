@@ -104,8 +104,8 @@ inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
 noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>cd :cd %:p:h<CR>
-noremap  <silent> <leader>ve :tabe ~/.vimrc<CR>
-noremap           <leader>vu :source ~/.vimrc<CR>
+noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
+noremap           <leader>vu :source $MYVIMRC<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :cd %:p:h<CR>:noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 
