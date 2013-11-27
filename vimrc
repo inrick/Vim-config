@@ -30,7 +30,7 @@ set ruler
 set showcmd
 set laststatus=2 " Always show the status bar
 set history=100
-set dir=~/.swp
+set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
 set number
 set relativenumber
