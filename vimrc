@@ -66,7 +66,7 @@ set foldmethod=marker " Fold between {{{ and }}}
 " set foldnestmax=2
 
 set wildmenu
-set wildmode=list,full
+set wildmode=list:longest,full
 
 syntax on
 filetype plugin indent on
