@@ -90,6 +90,15 @@ endif
 let mapleader      = ","
 let maplocalleader = "\\"
 
+" Easier ex mode navigation. Mostly taken from :help tcsh-style.
+cnoremap <C-A> <Home>
+cnoremap <C-F> <Right>
+cnoremap <C-B> <Left>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+cnoremap <Esc>p <Up>
+cnoremap <Esc>n <Down>
+
 noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
