@@ -68,6 +68,8 @@ set foldmethod=marker " Fold between {{{ and }}}
 set wildmenu
 set wildmode=list:longest,full
 
+set tags=./tags;
+
 syntax on
 filetype plugin indent on
 set novisualbell
