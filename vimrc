@@ -29,7 +29,7 @@ set runtimepath^=$HOME/.vim
 set ruler
 set showcmd
 set laststatus=2 " Always show the status bar
-set history=10
+set history=100
 set dir=~/.swp
 set backspace=indent,eol,start
 set number
