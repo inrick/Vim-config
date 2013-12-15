@@ -102,8 +102,6 @@ cnoremap <Esc>p <Up>
 cnoremap <Esc>n <Down>
 cnoremap <Esc><BS> <C-W>
 
-noremap  <silent> <C-S>      :update<CR>
-inoremap <silent> <C-S>      <C-O>:update<CR>
 inoremap <silent> <Del>      <C-O>x
 noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>cd :cd %:p:h<CR>
