@@ -127,6 +127,10 @@ nmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
 vmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
 nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
+nmap              <leader>b  :CtrlPBuffer<CR>
+vmap              <leader>b  :CtrlPBuffer<CR>
+nmap              <leader>f  :CtrlP<CR>
+vmap              <leader>f  :CtrlP<CR>
 
 " Plugin settings
 let g:SuperTabDefaultCompletionType = "context"
