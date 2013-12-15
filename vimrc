@@ -103,6 +103,7 @@ cnoremap <Esc>n <Down>
 cnoremap <Esc><BS> <C-W>
 
 inoremap <silent> <Del>      <C-O>x
+noremap           <leader>w  :update<CR>
 noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
