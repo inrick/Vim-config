@@ -100,6 +100,7 @@ cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>p <Up>
 cnoremap <Esc>n <Down>
+cnoremap <Esc><BS> <C-W>
 
 noremap  <silent> <C-S>      :update<CR>
 inoremap <silent> <C-S>      <C-O>:update<CR>
