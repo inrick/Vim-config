@@ -55,7 +55,7 @@ set listchars=tab:»\
 
 set wrap
 set showbreak=↳\ 
-set formatoptions+=l
+set formatoptions+=lj
 set linebreak
 set textwidth=79      " Break lines at this width
 set colorcolumn=+1    " Show vertical line after the textwidth
