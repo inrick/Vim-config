@@ -80,6 +80,8 @@ set t_Co=256 " Force 256 colors
 set background=light
 colorscheme solarized
 
+set omnifunc=syntaxcomplete#Complete
+
 if has("gui_running")
   set guioptions-=T " No toolbar
   set guioptions-=m " No menu
