@@ -12,6 +12,7 @@ Bundle 'bling/vim-airline'
 Bundle 'ddollar/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'ervandew/supertab'
+Bundle 'jpalardy/vim-slime'
 Bundle 'kien/ctrlp.vim'
 Bundle 'LaTeX-Box'
 Bundle 'mikewest/vimroom'
@@ -150,6 +151,8 @@ let g:vimroom_sidebar_height     = 0
 let g:vimroom_scrolloff          = 5
 let g:vimroom_guibackground      = '#fdf6e3'
 let g:vimroom_ctermbackground    = 'bg'
+
+let g:slime_target = 'tmux'
 
 " Highlight trailing whitespace
 " Taken from https://github.com/bronson/vim-trailing-whitespace but changed the
