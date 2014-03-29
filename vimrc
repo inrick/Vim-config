@@ -72,6 +72,9 @@ set foldmethod=marker " Fold between {{{ and }}}
 set wildmenu
 set wildmode=list:longest,full
 
+set splitbelow
+set splitright
+
 set tags=./tags;
 
 syntax on
