@@ -2,33 +2,29 @@ set nocompatible   " No Vi-compatibility, changes other options so put it first
 set nomodeline     " Security measure, do not apply file specific settings
 set encoding=utf-8 " Force utf-8
 
-" Setup plugins with vundle
+" Setup plugins
 filetype off
-set runtimepath+=$HOME/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'bitc/vim-hdevtools'
-Bundle 'cscope_macros.vim'
-Bundle 'ddollar/nerdcommenter'
-Bundle 'godlygeek/tabular'
-Bundle 'ervandew/supertab'
-Bundle 'jpalardy/vim-slime'
-Bundle 'kien/ctrlp.vim'
-Bundle 'LaTeX-Box'
-Bundle 'mikewest/vimroom'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'Townk/vim-autoclose'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-
-" Prepend ~/.vim to rtp since vundle messes it up. We want ~/.vim first so that
-" new words are added to the spell files in the correct path.
-set runtimepath-=$HOME/.vim
-set runtimepath^=$HOME/.vim
+set runtimepath+=$HOME/.vim/bundle/neobundle.vim
+call neobundle#begin('$HOME/.vim/bundle/')
+NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'ddollar/nerdcommenter'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'jpalardy/vim-slime'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'mikewest/vimroom'
+NeoBundle 'mileszs/ack.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-scripts/cscope_macros.vim'
+NeoBundle 'vim-scripts/LaTeX-Box'
+call neobundle#end()
 
 set ruler
 set showcmd
