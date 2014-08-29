@@ -15,7 +15,6 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'mikewest/vimroom'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -150,14 +149,6 @@ let g:ctrlp_max_files = 5000
 let g:ctrlp_extensions = ['tag']
 
 let g:airline_powerline_fonts = 1
-
-let g:vimroom_width              = 105
-let g:vimroom_navigation_keys    = 0
-let g:vimroom_clear_line_numbers = 1
-let g:vimroom_sidebar_height     = 0
-let g:vimroom_scrolloff          = 5
-let g:vimroom_guibackground      = '#fdf6e3'
-let g:vimroom_ctermbackground    = 'bg'
 
 let g:slime_target = 'tmux'
 
