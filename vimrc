@@ -120,6 +120,10 @@ noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<C
 " Plugin mappings
 noremap  <silent> <leader>nt :NERDTreeToggle<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
+nnoremap          <leader>gb :Gblame<CR>
+nnoremap          <leader>gc :Gcommit<CR>
+nnoremap          <leader>gd :Gdiff<CR>
+nnoremap          <leader>gs :Gstatus<CR>
 nmap              <leader>r  <Plug>NERDCommenterComment
 vmap              <leader>r  <Plug>NERDCommenterComment
 nmap              <leader>t  <Plug>NERDCommenterUncomment
