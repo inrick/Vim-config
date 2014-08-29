@@ -15,10 +15,10 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimproc.vim', {
   \ 'build' : {
   \     'windows' : 'tools\\update-dll-mingw',
@@ -125,8 +125,7 @@ nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 
 " Plugin mappings
-noremap  <silent> <leader>nt :NERDTreeToggle<CR>
-noremap  <silent> <F4>       :NERDTreeToggle<CR>
+noremap  <silent> <F4>       :VimFilerExplorer<CR>
 nnoremap          <leader>b  :Unite -start-insert buffer<CR>
 nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
 nnoremap          <C-p>      :Unite -start-insert file_rec/async:! buffer file/new<CR>
@@ -157,6 +156,9 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:airline_powerline_fonts = 1
 
 let g:slime_target = 'tmux'
+
+let g:vimfiler_as_default_explorer = 1
+autocmd FileType vimfiler call s:disable_trailing_whitespace()
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
