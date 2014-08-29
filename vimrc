@@ -16,7 +16,6 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'jpalardy/vim-slime'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimproc.vim', {
