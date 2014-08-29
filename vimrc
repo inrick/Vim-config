@@ -14,11 +14,11 @@ NeoBundle 'ddollar/nerdcommenter'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mileszs/ack.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim', {
   \ 'build' : {
   \     'windows' : 'tools\\update-dll-mingw',
@@ -127,6 +127,11 @@ noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<C
 " Plugin mappings
 noremap  <silent> <leader>nt :NERDTreeToggle<CR>
 noremap  <silent> <F4>       :NERDTreeToggle<CR>
+nnoremap          <leader>b  :Unite -start-insert buffer<CR>
+nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
+nnoremap          <C-p>      :Unite -start-insert file_rec/async:! buffer file/new<CR>
+nnoremap          <leader>y  :Unite -start-insert history/yank<CR>
+nnoremap          <leader>l  :Unite -start-insert grep:!<CR>
 nnoremap          <leader>gb :Gblame<CR>
 nnoremap          <leader>gc :Gcommit<CR>
 nnoremap          <leader>gd :Gdiff<CR>
@@ -145,20 +150,24 @@ nmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
 vmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
 nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
-nmap              <leader>b  :CtrlPBuffer<CR>
-vmap              <leader>b  :CtrlPBuffer<CR>
-nmap              <leader>f  :CtrlP<CR>
-vmap              <leader>f  :CtrlP<CR>
 
 " Plugin settings
 let g:SuperTabDefaultCompletionType = "context"
 
-let g:ctrlp_max_files = 5000
-let g:ctrlp_extensions = ['tag']
-
 let g:airline_powerline_fonts = 1
 
 let g:slime_target = 'tmux'
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_source_history_yank_enable = 1
+let g:unite_prompt="» "
+if executable("ag")
+  let g:unite_source_grep_command="ag"
+  let g:unite_source_grep_default_opts="--nocolor --nogroup --column"
+  let g:unite_source_grep_recursive_opt=""
+endif
+autocmd FileType unite call s:disable_trailing_whitespace()
 
 " Highlight trailing whitespace
 " Taken from https://github.com/bronson/vim-trailing-whitespace but changed the
@@ -167,3 +176,9 @@ highlight ExtraWhitespace ctermbg=darkred guibg=#CC4B43
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+
+function! s:disable_trailing_whitespace()
+  autocmd BufWinEnter <buffer> match ExtraWhitespace //
+  autocmd InsertLeave <buffer> match ExtraWhitespace //
+  autocmd InsertEnter <buffer> match ExtraWhitespace //
+endfunction
