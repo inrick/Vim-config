@@ -124,7 +124,7 @@ nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 
 " Plugin mappings
-noremap  <silent> <F4>       :VimFilerExplorer<CR>
+noremap  <silent> <F4>       :VimFilerExplorer -toggle<CR>
 nnoremap          <leader>b  :Unite -start-insert buffer<CR>
 nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
 nnoremap          <C-p>      :Unite -start-insert file_rec/async:! buffer file/new<CR>
