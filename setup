@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+readonly SCRIPT=${0:a}
+readonly SOURCE=${SCRIPT%/*}
+readonly TARGET=$HOME
+
+if [[ -e "$TARGET/.vimrc" || -e "$TARGET/.vim" ]]; then
+  echo "ERROR: '$TARGET/.vim' and/or '$TARGET/.vimrc' already exist."
+  exit 1
+fi
+
+git clone "https://github.com/Shougo/neobundle.vim" "$SOURCE/vim/bundle/neobundle.vim"
+mkdir "$SOURCE/vim/swp"
+ln -s "$SOURCE/vimrc" "$TARGET/.vimrc"
+ln -s "$SOURCE/vim" "$TARGET/.vim"
+vim +NeoBundleInstall +qall
+patch "$SOURCE/vim/bundle/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
