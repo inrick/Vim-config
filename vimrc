@@ -156,6 +156,8 @@ let g:airline_powerline_fonts = 1
 
 let g:slime_target = 'tmux'
 
+let g:syntastic_check_on_open = 1
+
 let g:vimfiler_as_default_explorer = 1
 autocmd FileType vimfiler call s:disable_trailing_whitespace()
 
