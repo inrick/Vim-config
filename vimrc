@@ -150,6 +150,8 @@ nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 
 " Plugin settings
+let g:ftplugin_sql_omni_key = "<C-K>"
+
 let g:SuperTabDefaultCompletionType = "context"
 
 let g:airline_powerline_fonts = 1
