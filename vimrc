@@ -42,6 +42,7 @@ set number
 set relativenumber
 set showmatch    " Highlight matching parenthesis/brackets/braces
 set mouse=a      " Mouse support
+set ttymouse=sgr
 set scrolloff=3  " Scroll when cursor is this near an edge
 set cursorline   " Highlight current line
 set spell spelllang=en
