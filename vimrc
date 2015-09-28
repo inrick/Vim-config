@@ -9,7 +9,6 @@ call neobundle#begin('$HOME/.vim/bundle/')
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'ddollar/nerdcommenter'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
