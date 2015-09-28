@@ -127,7 +127,7 @@ noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<C
 noremap  <silent> <F4>       :VimFilerExplorer -toggle<CR>
 nnoremap          <leader>b  :Unite -start-insert buffer<CR>
 nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
-nnoremap          <C-p>      :Unite -start-insert file_rec/async:! buffer file/new<CR>
+nnoremap          <C-p>      :Unite -start-insert file_rec/git:--cached:--others:--exclude-standard<CR>
 nnoremap          <leader>y  :Unite -start-insert history/yank<CR>
 nnoremap          <leader>l  :Unite -start-insert grep:!<CR>
 nnoremap          <leader>gb :Gblame<CR>
