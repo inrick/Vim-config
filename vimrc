@@ -100,7 +100,7 @@ if has("gui_running")
   set guioptions-=L " No left scrollbar
   set guioptions-=r " No right scrollbar
   set winaltkeys=no " Do not let the menu steal the alt-key
-  set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+  set guifont=Ubuntu\ Mono\ 12
 endif
 
 let mapleader      = ","
@@ -156,7 +156,7 @@ let g:ftplugin_sql_omni_key = "<C-K>"
 
 let g:SuperTabDefaultCompletionType = "context"
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 let g:slime_target = 'tmux'
 
