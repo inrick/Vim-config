@@ -190,3 +190,8 @@ function! s:disable_trailing_whitespace()
   autocmd InsertLeave <buffer> match ExtraWhitespace //
   autocmd InsertEnter <buffer> match ExtraWhitespace //
 endfunction
+
+if executable('opam')
+  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+  execute 'set rtp+=' . g:opamshare . '/merlin/vim'
+endif
