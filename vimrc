@@ -8,7 +8,8 @@ set runtimepath+=$HOME/.vim/bundle/neobundle.vim
 call neobundle#begin('$HOME/.vim/bundle/')
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'ddollar/nerdcommenter'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
@@ -157,6 +158,7 @@ let g:ftplugin_sql_omni_key = "<C-K>"
 let g:SuperTabDefaultCompletionType = "context"
 
 let g:airline_powerline_fonts = 0
+let g:airline_theme='solarized'
 
 let g:slime_target = 'tmux'
 
