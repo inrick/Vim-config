@@ -158,8 +158,12 @@ let g:ftplugin_sql_omni_key = "<C-K>"
 
 let g:SuperTabDefaultCompletionType = "context"
 
+let g:airline_detect_spell = 0
 let g:airline_powerline_fonts = 0
 let g:airline_theme='solarized'
+let g:airline_section_z = ''
+let g:airline_section_warning = ''
+let g:airline_section_error = ''
 
 let g:slime_target = 'tmux'
 
