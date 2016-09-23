@@ -8,9 +8,9 @@ if [[ -e "$TARGET/.vimrc" || -e "$TARGET/.vim" ]]; then
   exit 1
 fi
 
-git clone "https://github.com/Shougo/neobundle.vim" "$SOURCE/vim/bundle/neobundle.vim"
+git clone "https://github.com/Shougo/dein.vim" "$SOURCE/vim/plugins/repos/github.com/Shougo/dein.vim"
 mkdir "$SOURCE/vim/swp"
 ln -s "$SOURCE/vimrc" "$TARGET/.vimrc"
 ln -s "$SOURCE/vim" "$TARGET/.vim"
-vim +NeoBundleInstall +qall
-patch "$SOURCE/vim/bundle/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
+vim "+call dein#install()" +qall
+patch "$SOURCE/vim/plugins/repos/github.com/vim-scripts/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"

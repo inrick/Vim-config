@@ -4,33 +4,26 @@ set encoding=utf-8 " Force utf-8
 
 " Setup plugins
 filetype off
-set runtimepath+=$HOME/.vim/bundle/neobundle.vim
-call neobundle#begin('$HOME/.vim/bundle/')
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'ddollar/nerdcommenter'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-  \ 'build' : {
-  \     'windows' : 'tools\\update-dll-mingw',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'vim-scripts/cscope_macros.vim'
-NeoBundle 'vim-scripts/LaTeX-Box'
-call neobundle#end()
+set runtimepath+=$HOME/.vim/plugins/repos/github.com/Shougo/dein.vim
+call dein#begin('$HOME/.vim/plugins/')
+call dein#add('Shougo/dein.vim')
+call dein#add('altercation/vim-colors-solarized')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
+call dein#add('ddollar/nerdcommenter')
+call dein#add('godlygeek/tabular')
+call dein#add('ervandew/supertab')
+call dein#add('jpalardy/vim-slime')
+call dein#add('mileszs/ack.vim')
+call dein#add('scrooloose/syntastic')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimfiler.vim')
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+call dein#add('tpope/vim-fugitive')
+call dein#add('tpope/vim-surround')
+call dein#add('vim-scripts/cscope_macros.vim')
+call dein#add('vim-scripts/LaTeX-Box')
+call dein#end()
 
 set ruler
 set showcmd
