@@ -125,6 +125,7 @@ noremap           <F5>       :make<CR>
 
 " Plugin mappings
 noremap  <silent> <F4>       :VimFilerExplorer -toggle<CR>
+noremap           <leader>e  :VimFiler -simple<CR>
 nnoremap          <leader>b  :Unite -start-insert buffer<CR>
 nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
 nnoremap          <C-p>      :Unite -start-insert file_rec/git:--cached:--others:--exclude-standard<CR>
