@@ -57,6 +57,9 @@ set listchars=tab:»\
 
 set wrap
 set showbreak=↳\ 
+if version >= 800
+  set breakindent
+end
 set formatoptions+=lj
 set nojoinspaces
 set linebreak
