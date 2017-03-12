@@ -121,7 +121,7 @@ noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
 noremap           <leader>vu :source $MYVIMRC<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
-noremap           <F5>       :make<CR>
+noremap           <F8>       :make<CR>
 
 " Plugin mappings
 noremap  <silent> <F4>       :VimFilerExplorer -toggle<CR>
