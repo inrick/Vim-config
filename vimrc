@@ -195,8 +195,19 @@ function! s:disable_trailing_whitespace()
   autocmd InsertEnter <buffer> match ExtraWhitespace //
 endfunction
 
-if executable('ocamlmerlin')
+if executable('opam')
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-  execute 'set rtp+=' . g:opamshare . '/merlin/vim'
-  let g:syntastic_ocaml_checkers = ['merlin']
+  if executable('ocamlmerlin')
+    execute 'set rtp+=' . g:opamshare . '/merlin/vim'
+    let g:merlin_split_method = 'vertical'
+    let g:syntastic_ocaml_checkers = ['merlin']
+    autocmd FileType ocaml call SuperTabSetDefaultCompletionType('<C-x><C-o>')
+    autocmd FileType ocaml nmap <buffer> <C-]> :MerlinLocate<CR>
+  endif
+  if executable('ocp-indent')
+    execute 'set rtp+=' . g:opamshare . '/ocp-indent/vim'
+  endif
+  if executable('ocp-index')
+    execute 'set rtp+=' . g:opamshare . '/ocp-index/vim'
+  endif
 endif
