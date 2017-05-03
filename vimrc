@@ -15,6 +15,7 @@ if dein#load_state('$HOME/.vim/plugins/')
   call dein#add('godlygeek/tabular')
   call dein#add('ervandew/supertab')
   call dein#add('jpalardy/vim-slime')
+  call dein#add('junegunn/fzf.vim')
   call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')
@@ -125,6 +126,10 @@ noremap           <F8>       :make<CR>
 
 " Plugin mappings
 noremap           <leader>e  :Explore<CR>
+nnoremap          <leader>b  :Buffers<CR>
+nnoremap          <leader>f  :Files<CR>
+nnoremap          <C-p>      :GFiles<CR>
+nnoremap          <leader>l  :Ag 
 nnoremap          <leader>gb :Gblame<CR>
 nnoremap          <leader>gc :Gcommit<CR>
 nnoremap          <leader>gd :Gdiff<CR>
