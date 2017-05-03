@@ -17,10 +17,10 @@ call dein#add('jpalardy/vim-slime')
 call dein#add('mileszs/ack.vim')
 call dein#add('scrooloose/syntastic')
 call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimfiler.vim')
 call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('tpope/vim-fugitive')
 call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-vinegar')
 call dein#add('vim-scripts/cscope_macros.vim')
 call dein#add('vim-scripts/LaTeX-Box')
 call dein#end()
@@ -124,8 +124,7 @@ noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<C
 noremap           <F8>       :make<CR>
 
 " Plugin mappings
-noremap  <silent> <F4>       :VimFilerExplorer -toggle<CR>
-noremap           <leader>e  :VimFiler -simple<CR>
+noremap           <leader>e  :Explore<CR>
 nnoremap          <leader>b  :Unite -start-insert buffer<CR>
 nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
 nnoremap          <C-p>      :Unite -start-insert file_rec/git:--cached:--others:--exclude-standard<CR>
@@ -151,6 +150,8 @@ nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 
 " Plugin settings
+let g:netrw_liststyle = 3 " tree
+
 let g:ftplugin_sql_omni_key = "<C-K>"
 
 let g:SuperTabDefaultCompletionType = "context"
