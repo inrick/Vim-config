@@ -16,8 +16,6 @@ if dein#load_state('$HOME/.vim/plugins/')
   call dein#add('ervandew/supertab')
   call dein#add('jpalardy/vim-slime')
   call dein#add('scrooloose/syntastic')
-  call dein#add('Shougo/unite.vim')
-  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')
   call dein#add('tpope/vim-vinegar')
@@ -127,11 +125,6 @@ noremap           <F8>       :make<CR>
 
 " Plugin mappings
 noremap           <leader>e  :Explore<CR>
-nnoremap          <leader>b  :Unite -start-insert buffer<CR>
-nnoremap          <leader>f  :Unite -start-insert file_rec/async:!<CR>
-nnoremap          <C-p>      :Unite -start-insert file_rec/git:--cached:--others:--exclude-standard<CR>
-nnoremap          <leader>y  :Unite -start-insert history/yank<CR>
-nnoremap          <leader>l  :Unite -start-insert grep:!<CR>
 nnoremap          <leader>gb :Gblame<CR>
 nnoremap          <leader>gc :Gcommit<CR>
 nnoremap          <leader>gd :Gdiff<CR>
@@ -169,17 +162,6 @@ let g:slime_target = 'tmux'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ["flake8"]
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-let g:unite_source_history_yank_enable = 1
-let g:unite_prompt="» "
-if executable("ag")
-  let g:unite_source_grep_command="ag"
-  let g:unite_source_grep_default_opts="--nocolor --nogroup --column"
-  let g:unite_source_grep_recursive_opt=""
-endif
-autocmd FileType unite call s:disable_trailing_whitespace()
 
 " Highlight trailing whitespace
 " Taken from https://github.com/bronson/vim-trailing-whitespace but changed the
