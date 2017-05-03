@@ -171,9 +171,6 @@ let g:slime_target = 'tmux'
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ["flake8"]
 
-let g:vimfiler_as_default_explorer = 1
-autocmd FileType vimfiler call s:disable_trailing_whitespace()
-
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 let g:unite_source_history_yank_enable = 1
