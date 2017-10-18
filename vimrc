@@ -40,7 +40,6 @@ if !has('nvim')
   set ttymouse=sgr
 end
 set scrolloff=3  " Scroll when cursor is this near an edge
-set cursorline   " Highlight current line
 set spell spelllang=en
 
 set incsearch
@@ -158,7 +157,7 @@ let g:SuperTabDefaultCompletionType = "context"
 
 let g:airline_detect_spell = 0
 let g:airline_powerline_fonts = 0
-let g:airline_theme='solarized'
+let g:airline_theme='base16'
 let g:airline_section_z = ''
 let g:airline_section_warning = ''
 let g:airline_section_error = ''
