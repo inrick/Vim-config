@@ -91,6 +91,10 @@ colorscheme solarized
 
 set omnifunc=syntaxcomplete#Complete
 
+if has('unix')
+  set clipboard=unnamedplus
+endif
+
 if has("gui_running")
   set guioptions-=T " No toolbar
   set guioptions-=m " No menu
