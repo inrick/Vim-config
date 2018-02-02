@@ -16,6 +16,7 @@ if dein#load_state('$HOME/.vim/plugins/')
   call dein#add('ervandew/supertab')
   call dein#add('jpalardy/vim-slime')
   call dein#add('junegunn/fzf.vim')
+  call dein#add('mileszs/ack.vim')
   call dein#add('scrooloose/syntastic')
   call dein#add('tpope/vim-fugitive')
   call dein#add('tpope/vim-surround')
@@ -128,7 +129,7 @@ noremap           <leader>e  :Explore<CR>
 nnoremap          <leader>b  :Buffers<CR>
 nnoremap          <leader>f  :Files<CR>
 nnoremap          <C-p>      :GFiles<CR>
-nnoremap          <leader>l  :Ag 
+nnoremap          <leader>l  :Ack!<space>
 nnoremap          <leader>gb :Gblame<CR>
 nnoremap          <leader>gc :Gcommit<CR>
 nnoremap          <leader>gd :Gdiff<CR>
@@ -166,6 +167,10 @@ let g:slime_target = 'tmux'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ["flake8"]
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " Highlight trailing whitespace
 " Taken from https://github.com/bronson/vim-trailing-whitespace but changed the
