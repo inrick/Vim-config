@@ -41,7 +41,8 @@ if !has('nvim')
   set ttymouse=sgr
 end
 set scrolloff=3  " Scroll when cursor is this near an edge
-set spell spelllang=en
+set nospell
+set spelllang=en
 
 set incsearch
 set hlsearch
