@@ -104,6 +104,7 @@ if has("gui_running")
   set guioptions-=L " No left scrollbar
   set guioptions-=r " No right scrollbar
   set winaltkeys=no " Do not let the menu steal the alt-key
+  set guicursor+=a:blinkon0 " Disable cursor blinking
   set guifont=Fira\ Mono\ 11
 endif
 
