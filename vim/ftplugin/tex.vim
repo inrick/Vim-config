@@ -2,7 +2,6 @@
 let g:LatexBox_viewer = 'okular --unique'
 let g:LatexBox_output_type = 'pdf'
 let g:LatexBox_latexmk_options = '-pvc -pdflatex="pdflatex -synctex=1 -interaction=nonstopmode -shell-escape"'
-let b:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', '$': '$'}
 
 " Use completion also for cleveref references
 let g:LatexBox_ref_pattern = '\C\\v\?\(c\|C\|eq\|page\)\?ref\*\?\_\s*{'
@@ -38,8 +37,8 @@ vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 setlocal tabstop=2
 setlocal shiftwidth=2
 setlocal softtabstop=2
-setlocal spell spelllang=en,sv
-"setlocal textwidth=80
+setlocal spelllang=en,sv
+setlocal nospell
 setlocal nolist " List screws up word wrap
 
 " Conceal
