@@ -52,8 +52,8 @@ set softtabstop=2 " Insert this many spaces when pressing tab
 set shiftwidth=2  " Number of spaces to indent
 set tabstop=8     " Show tab as this many spaces
 
-set list
-set listchars=tab:»\ 
+set nolist
+set listchars=tab:»\ ,trail:·
 
 set wrap
 if version >= 800
@@ -123,6 +123,7 @@ noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
+noremap           <F7>       :set list!<CR>
 noremap           <F8>       :make<CR>
 
 " Plugin mappings
@@ -163,20 +164,6 @@ let g:syntastic_python_checkers = ["flake8"]
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
-
-" Highlight trailing whitespace
-" Taken from https://github.com/bronson/vim-trailing-whitespace but changed the
-" color to match solarized
-highlight ExtraWhitespace ctermbg=darkred guibg=#CC4B43
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-
-function! s:disable_trailing_whitespace()
-  autocmd BufWinEnter <buffer> match ExtraWhitespace //
-  autocmd InsertLeave <buffer> match ExtraWhitespace //
-  autocmd InsertEnter <buffer> match ExtraWhitespace //
-endfunction
 
 if executable('opam')
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
