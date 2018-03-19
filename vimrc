@@ -9,8 +9,6 @@ if dein#load_state('$HOME/.vim/plugins/')
   call dein#begin('$HOME/.vim/plugins/')
   call dein#add('Shougo/dein.vim')
   call dein#add('altercation/vim-colors-solarized')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
   call dein#add('godlygeek/tabular')
   call dein#add('ervandew/supertab')
   call dein#add('inrick/vim-colors-bclear2')
@@ -30,7 +28,7 @@ endif
 
 set ruler
 set showcmd
-set laststatus=2 " Always show the status bar
+set laststatus=1
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
@@ -162,13 +160,6 @@ let g:netrw_liststyle = 3 " tree
 let g:ftplugin_sql_omni_key = "<C-K>"
 
 let g:SuperTabDefaultCompletionType = "context"
-
-let g:airline_detect_spell = 0
-let g:airline_powerline_fonts = 0
-let g:airline_theme='base16'
-let g:airline_section_z = ''
-let g:airline_section_warning = ''
-let g:airline_section_error = ''
 
 let g:slime_target = 'tmux'
 
