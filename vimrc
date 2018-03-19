@@ -1,6 +1,6 @@
 set nocompatible   " No Vi-compatibility, changes other options so put it first
 set nomodeline     " Security measure, do not apply file specific settings
-set encoding=utf-8 " Force utf-8
+set encoding=utf-8
 
 " Setup plugins
 filetype off
@@ -33,24 +33,24 @@ set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
 set number
 set relativenumber
-set showmatch    " Highlight matching parenthesis/brackets/braces
-set mouse=a      " Mouse support
+set showmatch
+set mouse=a
 if !has('nvim')
   set ttymouse=sgr
 end
-set scrolloff=3  " Scroll when cursor is this near an edge
+set scrolloff=3
 set nospell
 set spelllang=en
 
 set incsearch
 set hlsearch
-set ignorecase " Ignore case when searching
-set smartcase  " Override ignorecase if search string contains uppercase
+set ignorecase
+set smartcase
 
-set expandtab     " Insert spaces instead of tabs
-set softtabstop=2 " Insert this many spaces when pressing tab
-set shiftwidth=2  " Number of spaces to indent
-set tabstop=8     " Show tab as this many spaces
+set expandtab
+set softtabstop=2
+set shiftwidth=2
+set tabstop=8
 
 set nolist
 set listchars=tab:»\ ,trail:·
@@ -62,20 +62,14 @@ end
 set formatoptions+=lj
 set nojoinspaces
 set linebreak
-set textwidth=79      " Break lines at this width
-set colorcolumn=+1    " Show vertical line after the textwidth
-set display+=lastline " Show part of a long line if it does not fit
-
+set textwidth=79
+set colorcolumn=+1
+set display+=lastline
 set foldmethod=marker " Fold between {{{ and }}}
-" set foldlevel=0
-" set foldnestmax=2
-
 set wildmenu
 set wildmode=list:longest,full
-
 set splitbelow
 set splitright
-
 set tags=./tags;
 
 syntax on
