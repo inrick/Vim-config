@@ -26,7 +26,7 @@ if dein#load_state('$HOME/.vim/plugins/')
   call dein#save_state()
 endif
 
-set ruler
+set noruler
 set showcmd
 set laststatus=1
 set history=100
@@ -57,7 +57,6 @@ set list
 set listchars=tab:»\ 
 
 set wrap
-set showbreak=↳\ 
 if version >= 800
   set breakindent
 end
@@ -121,10 +120,8 @@ cnoremap <Esc><BS> <C-W>
 
 inoremap <silent> <Del>      <C-O>x
 noremap           <leader>w  :update<CR>
-noremap  <silent> <leader>nn :set number!<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
-noremap           <leader>vu :source $MYVIMRC<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 noremap           <F8>       :make<CR>
