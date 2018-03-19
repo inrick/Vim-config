@@ -92,7 +92,7 @@ if has('unix')
   set clipboard=unnamedplus
 endif
 
-if has("gui_running")
+if has('gui_running')
   set guioptions-=T " No toolbar
   set guioptions-=m " No menu
   set guioptions-=t " No tearoff menu
@@ -107,8 +107,8 @@ if has("gui_running")
   colorscheme bclear2
 endif
 
-let mapleader      = ","
-let maplocalleader = "\\"
+let mapleader      = ','
+let maplocalleader = '\'
 
 " Easier ex mode navigation. Mostly taken from :help tcsh-style.
 cnoremap <C-A> <Home>
@@ -157,12 +157,12 @@ vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
 
-let g:ftplugin_sql_omni_key = "<C-K>"
+let g:ftplugin_sql_omni_key = '<C-K>'
 
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = 'context'
 
 let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_python_checkers = ['flake8']
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
