@@ -12,7 +12,6 @@ if dein#load_state('$HOME/.vim/plugins/')
   call dein#add('godlygeek/tabular')
   call dein#add('ervandew/supertab')
   call dein#add('inrick/vim-colors-bclear2')
-  call dein#add('jpalardy/vim-slime')
   call dein#add('junegunn/fzf.vim')
   call dein#add('mileszs/ack.vim')
   call dein#add('scrooloose/nerdcommenter')
@@ -157,8 +156,6 @@ let g:netrw_liststyle = 3 " tree
 let g:ftplugin_sql_omni_key = "<C-K>"
 
 let g:SuperTabDefaultCompletionType = "context"
-
-let g:slime_target = 'tmux'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ["flake8"]
