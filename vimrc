@@ -67,6 +67,7 @@ set wildmode=list:longest,full
 set splitbelow
 set splitright
 set tags=./tags;
+set completeopt=menuone,preview,noselect
 set omnifunc=syntaxcomplete#Complete
 if has('unix')
   set clipboard=unnamedplus
@@ -147,6 +148,7 @@ let g:netrw_liststyle = 3 " tree
 let g:ftplugin_sql_omni_key = '<C-K>'
 
 let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabContextDefaultCompletionType = '<C-n>'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8']
