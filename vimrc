@@ -41,20 +41,16 @@ end
 set scrolloff=3
 set nospell
 set spelllang=en
-
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-
 set expandtab
 set softtabstop=2
 set shiftwidth=2
 set tabstop=8
-
 set nolist
 set listchars=tab:»\ ,trail:·
-
 set wrap
 if version >= 800
   set breakindent
@@ -71,6 +67,10 @@ set wildmode=list:longest,full
 set splitbelow
 set splitright
 set tags=./tags;
+set omnifunc=syntaxcomplete#Complete
+if has('unix')
+  set clipboard=unnamedplus
+endif
 
 syntax on
 filetype plugin indent on
@@ -79,12 +79,6 @@ set t_vb=
 set t_Co=256 " Force 256 colors
 set background=light
 colorscheme solarized
-
-set omnifunc=syntaxcomplete#Complete
-
-if has('unix')
-  set clipboard=unnamedplus
-endif
 
 if has('gui_running')
   set guioptions-=T " No toolbar
@@ -117,7 +111,6 @@ cnoremap <Esc><BS> <C-W>
 inoremap <silent> <Del>      <C-O>x
 noremap           <leader>w  :update<CR>
 noremap           <leader>cd :cd %:p:h<CR>
-noremap  <silent> <leader>ve :tabe $MYVIMRC<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 noremap           <F7>       :set list!<CR>
