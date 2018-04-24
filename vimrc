@@ -27,7 +27,8 @@ endif
 
 set noruler
 set showcmd
-set laststatus=1
+set laststatus=2
+set statusline=%f\ %M\ %=\ %y
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
