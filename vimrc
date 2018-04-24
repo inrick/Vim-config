@@ -60,7 +60,6 @@ end
 set formatoptions+=j
 set nojoinspaces
 set textwidth=79
-set colorcolumn=+1
 set display+=lastline
 set nofoldenable
 set foldmethod=marker " Fold between {{{ and }}}
@@ -116,7 +115,7 @@ noremap           <leader>w  :update<CR>
 noremap           <leader>cd :cd %:p:h<CR>
 nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
-noremap           <F7>       :set list!<CR>
+noremap  <silent> <F7>       :call ToggleHints()<CR>
 noremap           <F8>       :make<CR>
 
 " Plugin mappings
@@ -143,6 +142,16 @@ nmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
 vmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
 nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
+
+function ToggleHints()
+  if &colorcolumn == ''
+    set colorcolumn=+1
+    set list
+  else
+    set colorcolumn=
+    set nolist
+  endif
+endfunction
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
