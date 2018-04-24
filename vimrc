@@ -62,6 +62,7 @@ set nojoinspaces
 set textwidth=79
 set colorcolumn=+1
 set display+=lastline
+set nofoldenable
 set foldmethod=marker " Fold between {{{ and }}}
 set wildmenu
 set wildmode=list:longest,full
