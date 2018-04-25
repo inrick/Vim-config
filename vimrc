@@ -54,8 +54,7 @@ filetype plugin indent on
 set novisualbell
 set t_vb=
 set t_Co=256 " Force 256 colors
-set background=light
-colorscheme solarized
+colorscheme flattened_light
 
 if has('gui_running')
   set guioptions-=T " No toolbar
