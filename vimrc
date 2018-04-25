@@ -3,8 +3,9 @@ set nomodeline     " Security measure, do not apply file specific settings
 set encoding=utf-8
 set noruler
 set showcmd
+set showmode
 set laststatus=2
-set statusline=%f\ %M\ %=\ %y
+set statusline=%f\ %M\ %=\ %R\ %y
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
