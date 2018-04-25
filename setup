@@ -2,15 +2,72 @@
 readonly SCRIPT=${0:a}
 readonly SOURCE=${SCRIPT%/*}
 readonly TARGET=$HOME
+readonly PLUGINS=$SOURCE/vim/pack/plugins/start
 
-if [[ -e "$TARGET/.vimrc" || -e "$TARGET/.vim" ]]; then
-  echo "ERROR: '$TARGET/.vim' and/or '$TARGET/.vimrc' already exist."
-  exit 1
-fi
+typeset -a repos
+readonly repos=(
+  'https://github.com/altercation/vim-colors-solarized'
+  'https://github.com/ervandew/supertab'
+  'https://github.com/godlygeek/tabular'
+  'https://github.com/inrick/vim-colors-bclear2'
+  'https://github.com/junegunn/fzf.vim'
+  'https://github.com/mileszs/ack.vim'
+  'https://github.com/scrooloose/nerdcommenter'
+  'https://github.com/scrooloose/syntastic'
+  'https://github.com/tpope/vim-fugitive'
+  'https://github.com/tpope/vim-surround'
+  'https://github.com/tpope/vim-vinegar'
+  'https://github.com/vim-scripts/LaTeX-Box'
+  'https://github.com/vim-scripts/cscope_macros.vim'
+)
 
-git clone "https://github.com/Shougo/dein.vim" "$SOURCE/vim/plugins/repos/github.com/Shougo/dein.vim"
-mkdir "$SOURCE/vim/swp"
-ln -s "$SOURCE/vimrc" "$TARGET/.vimrc"
-ln -s "$SOURCE/vim" "$TARGET/.vim"
-vim "+call dein#install()" +qall
-patch "$SOURCE/vim/plugins/repos/github.com/vim-scripts/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
+print_usage() {
+  cat << EOF
+Usage: $SCRIPT <COMMAND>
+
+COMMANDS:
+    install  Install vim config and plugins
+    plugins  Install any plugins not yet installed
+    update   Update/install all plugins
+EOF
+}
+
+install_plugins() {
+  local update_plugins=${1:-false}
+  mkdir -p "$PLUGINS"
+  for r in $repos; do
+    local name=${r##*/}
+    local plugin_path=$PLUGINS/$name
+    if [[ -e "$plugin_path" ]]; then
+      if $update_plugins; then
+        echo "Updating $name..."
+        ( cd "$plugin_path" && git pull --ff-only )
+      fi
+    else
+      echo "Installing $name..."
+      git clone "$r" "$plugin_path"
+    fi
+  done
+  vim "+helptags ALL" +qall
+}
+
+install() {
+  if [[ -e "$TARGET/.vimrc" || -e "$TARGET/.vim" ]]; then
+    echo "ERROR: '$TARGET/.vim' and/or '$TARGET/.vimrc' already exist."
+    exit 1
+  fi
+
+  mkdir -p "$SOURCE/vim/swp"
+  ln -s "$SOURCE/vimrc" "$TARGET/.vimrc"
+  ln -s "$SOURCE/vim" "$TARGET/.vim"
+
+  install_plugins false
+  patch "$SOURCE/vim/pack/plugins/start/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
+}
+
+case $1 in
+  install) install;;
+  plugins) install_plugins false;;
+  update) install_plugins true;;
+  *) print_usage; exit 1;;
+esac

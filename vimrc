@@ -1,30 +1,6 @@
 set nocompatible   " No Vi-compatibility, changes other options so put it first
 set nomodeline     " Security measure, do not apply file specific settings
 set encoding=utf-8
-
-" Setup plugins
-filetype off
-set runtimepath+=$HOME/.vim/plugins/repos/github.com/Shougo/dein.vim
-if dein#load_state('$HOME/.vim/plugins/')
-  call dein#begin('$HOME/.vim/plugins/')
-  call dein#add('Shougo/dein.vim')
-  call dein#add('altercation/vim-colors-solarized')
-  call dein#add('godlygeek/tabular')
-  call dein#add('ervandew/supertab')
-  call dein#add('inrick/vim-colors-bclear2')
-  call dein#add('junegunn/fzf.vim')
-  call dein#add('mileszs/ack.vim')
-  call dein#add('scrooloose/nerdcommenter')
-  call dein#add('scrooloose/syntastic')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-vinegar')
-  call dein#add('vim-scripts/cscope_macros.vim')
-  call dein#add('vim-scripts/LaTeX-Box')
-  call dein#end()
-  call dein#save_state()
-endif
-
 set noruler
 set showcmd
 set laststatus=2
@@ -54,9 +30,7 @@ set nolist
 set listchars=tab:»\ ,trail:·
 set wrap
 set nolinebreak
-if version >= 800
-  set nobreakindent
-end
+set nobreakindent
 set formatoptions+=j
 set nojoinspaces
 set textwidth=79
