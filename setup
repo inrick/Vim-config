@@ -62,7 +62,7 @@ install() {
   ln -s "$SOURCE/vim" "$TARGET/.vim"
 
   install_plugins false
-  patch "$SOURCE/vim/pack/plugins/start/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
+  patch "$PLUGINS/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
 }
 
 case $1 in
