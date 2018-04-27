@@ -5,7 +5,7 @@ set noruler
 set showcmd
 set showmode
 set laststatus=2
-set statusline=%f\ %M\ %=\ %R\ %y
+set statusline=%f\ %M\ %R\ %=\ %{&ft}
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
@@ -40,6 +40,7 @@ set nofoldenable
 set foldmethod=marker " Fold between {{{ and }}}
 set wildmenu
 set wildmode=list:longest,full
+set wildignorecase
 set splitbelow
 set splitright
 set tags=./tags;
@@ -93,18 +94,21 @@ cnoremap <Esc>p <Up>
 cnoremap <Esc>n <Down>
 cnoremap <Esc><BS> <C-W>
 
+noremap           ¤          $
+nnoremap          Q          gqip
+vnoremap          Q          gq
 inoremap <silent> <Del>      <C-O>x
-noremap           <leader>w  :update<CR>
-noremap           <leader>cd :cd %:p:h<CR>
-nnoremap <silent> <CR>       :nohlsearch<CR><CR>
-noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
-noremap  <silent> <F7>       :call ToggleHints()<CR>
-noremap           <F8>       :make<CR>
+nnoremap <silent> <BS>       :nohlsearch<CR>
+nnoremap <silent> <F7>       :call <SID>ToggleHints()<CR>
+nnoremap          <F8>       :make<CR>
+nnoremap          <leader>b  :ls<CR>:b<space>
+nnoremap          <leader>cd :cd %:p:h<CR>
+nnoremap          <leader>gt :vimgrep /TODO\\|FIXME\\|XXX/j %<CR>
 nnoremap          <leader>l  :Grep<space>
+nnoremap          <leader>w  :update<CR>
 
 " Plugin mappings
 noremap           <leader>e  :Explore<CR>
-nnoremap          <leader>b  :Buffers<CR>
 nnoremap          <leader>f  :Files<CR>
 nnoremap          <C-p>      :GFiles<CR>
 nnoremap          <leader>gb :Gblame<CR>
@@ -126,7 +130,9 @@ vmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
 nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 
-function ToggleHints()
+" Possible alternative to avoid the noisy column
+" call matchadd('ColorColumn', '\%' . string(&textwidth+1) . 'v', 100)
+function! s:ToggleHints()
   if &colorcolumn == ''
     set colorcolumn=+1
     set list
@@ -140,14 +146,12 @@ command! -nargs=+ -complete=file -bar Grep silent! grep! <args> | redraw!
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
-
 let g:ftplugin_sql_omni_key = '<C-K>'
-
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<C-n>'
 
-let g:syntastic_check_on_open = 1
-let g:syntastic_python_checkers = ['flake8']
+runtime! ftplugin/man.vim " For :Man and <leader>K
+packadd! matchit
 
 if executable('opam')
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
