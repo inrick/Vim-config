@@ -10,7 +10,6 @@ readonly repos=(
   'https://github.com/godlygeek/tabular'
   'https://github.com/inrick/vim-colors-bclear2'
   'https://github.com/junegunn/fzf.vim'
-  'https://github.com/mileszs/ack.vim'
   'https://github.com/romainl/flattened'
   'https://github.com/scrooloose/nerdcommenter'
   'https://github.com/scrooloose/syntastic'

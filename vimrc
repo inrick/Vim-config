@@ -71,6 +71,15 @@ if has('gui_running')
   colorscheme bclear2
 endif
 
+if executable('ag')
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
+endif
+
+" Open quickfix/location window after running command populating them
+autocmd QuickFixCmdPost [^l]* cwindow
+autocmd QuickFixCmdPost l*    lwindow
+
 let mapleader      = ','
 let maplocalleader = '\'
 
@@ -91,13 +100,13 @@ nnoremap <silent> <CR>       :nohlsearch<CR><CR>
 noremap           <leader>gt :noautocmd vimgrep /TODO\\|FIXME\\|XXX/j %<CR>:cw<CR>
 noremap  <silent> <F7>       :call ToggleHints()<CR>
 noremap           <F8>       :make<CR>
+nnoremap          <leader>l  :Grep<space>
 
 " Plugin mappings
 noremap           <leader>e  :Explore<CR>
 nnoremap          <leader>b  :Buffers<CR>
 nnoremap          <leader>f  :Files<CR>
 nnoremap          <C-p>      :GFiles<CR>
-nnoremap          <leader>l  :Ack!<space>
 nnoremap          <leader>gb :Gblame<CR>
 nnoremap          <leader>gc :Gcommit<CR>
 nnoremap          <leader>gd :Gdiff<CR>
@@ -127,6 +136,8 @@ function ToggleHints()
   endif
 endfunction
 
+command! -nargs=+ -complete=file -bar Grep silent! grep! <args> | redraw!
+
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
 
@@ -137,10 +148,6 @@ let g:SuperTabContextDefaultCompletionType = '<C-n>'
 
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8']
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
 
 if executable('opam')
   let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
