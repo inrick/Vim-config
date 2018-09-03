@@ -9,8 +9,8 @@ set statusline=%f\ %M\ %R\ %=\ %{&ft}
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
-set number
-set relativenumber
+set nonumber
+set norelativenumber
 set showmatch
 set mouse=a
 if !has('nvim')
@@ -29,7 +29,7 @@ set shiftwidth=2
 set tabstop=8
 set nolist
 set listchars=tab:»\ ,trail:·
-set wrap
+set nowrap
 set nolinebreak
 set nobreakindent
 set formatoptions+=j
