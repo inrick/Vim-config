@@ -3,15 +3,19 @@ setlocal nospell
 setlocal linebreak
 setlocal suffixes+=.fls,.fdb_latexmk,.synctex.gz,.pdf
 
+syntax spell toplevel
+"let g:tex_comment_nospell=1
+let g:tex_fast=""
+
 nnoremap <silent> <buffer> <leader>v :call <SID>ViewPdf()<CR>
 " 'ko' is used instead of 'O' below for correct indentation
-inoremap <silent> <buffer> <F5> <Esc>:s/\([\t ]*\)\(.*\)/\1\\begin{\2}\r\1\\end{\2}<CR>:let @/ = ""<CR>ko
+inoremap <silent> <buffer> <F6> <Esc>:s/\([\t ]*\)\(.*\)/\1\\begin{\2}\r\1\\end{\2}<CR>:let @/ = ""<CR>ko
 inoremap          <buffer> <C-S-Up> ^{}<Left>
 inoremap          <buffer> <C-S-Down> _{}<Left>
 
 "imap <buffer> [[     \begin{
 "imap <buffer> ]]     <Plug>LatexCloseCurEnv
-nmap <buffer> <F5>   <Plug>LatexChangeEnv
+nmap <buffer> <F6>   <Plug>LatexChangeEnv
 vmap <buffer> <F7>   <Plug>LatexWrapSelection
 vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 
