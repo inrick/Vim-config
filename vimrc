@@ -142,7 +142,17 @@ function! s:ToggleHints()
   endif
 endfunction
 
+" :help special-buffers
+function! s:CreateSplitScratch()
+  split
+  enew
+  setlocal buftype=nofile
+  setlocal bufhidden=hide
+  setlocal noswapfile
+endfunction
+
 command! -nargs=+ -complete=file -bar Grep silent! grep! <args> | redraw!
+command! Scratch call <SID>CreateSplitScratch()
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
