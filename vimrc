@@ -5,7 +5,7 @@ set noruler
 set showcmd
 set showmode
 set laststatus=2
-set statusline=%(%y\ %)%f\ %M\ %R\ %=\ %l,%c
+set statusline=%f\ %(%M\ %)%(%R\ %)%(\ \ %{&ft}%)%=\ %l,%c
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
@@ -37,14 +37,15 @@ set nojoinspaces
 set textwidth=79
 set display+=lastline
 set nofoldenable
-set foldmethod=marker " Fold between {{{ and }}}
+set foldmethod=manual
 set wildmenu
 set wildmode=list:longest,full
 set wildignorecase
+set wildcharm=<C-Z>
 set splitbelow
 set splitright
 set tags=./tags;
-set completeopt=menuone,preview,noselect
+set completeopt=menuone,preview
 set omnifunc=syntaxcomplete#Complete
 if has('unix')
   set clipboard=unnamedplus
@@ -72,8 +73,8 @@ if has('gui_running')
   colorscheme acme
 endif
 
-if executable('ag')
-  set grepprg=ag\ --vimgrep\ $*
+if executable('rg')
+  set grepprg=rg\ -i\ --vimgrep\ $*
   set grepformat=%f:%l:%c:%m
 endif
 
@@ -164,18 +165,18 @@ runtime! ftplugin/man.vim " For :Man and <leader>K
 packadd! matchit
 
 if executable('opam')
-  let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+  let s:opamshare = substitute(system('opam config var share'),'\n$','','''')
   if executable('ocamlmerlin')
-    execute 'set rtp+=' . g:opamshare . '/merlin/vim'
+    execute 'set rtp+=' . s:opamshare . '/merlin/vim'
     let g:merlin_split_method = 'vertical'
     let g:syntastic_ocaml_checkers = ['merlin']
     autocmd FileType ocaml call SuperTabSetDefaultCompletionType('<C-x><C-o>')
     autocmd FileType ocaml nmap <buffer> <C-]> :MerlinLocate<CR>
   endif
   if executable('ocp-indent')
-    execute 'set rtp+=' . g:opamshare . '/ocp-indent/vim'
+    execute 'set rtp+=' . s:opamshare . '/ocp-indent/vim'
   endif
   if executable('ocp-index')
-    execute 'set rtp+=' . g:opamshare . '/ocp-index/vim'
+    execute 'set rtp+=' . s:opamshare . '/ocp-index/vim'
   endif
 endif
