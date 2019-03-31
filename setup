@@ -7,6 +7,7 @@ readonly PLUGINS=$SOURCE/vim/pack/plugins/start
 typeset -a repos
 readonly repos=(
   'https://github.com/ervandew/supertab'
+  'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
   'https://github.com/inrick/vim-colors-bclear2'
   'https://github.com/junegunn/fzf.vim'

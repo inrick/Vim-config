@@ -160,6 +160,7 @@ let g:netrw_liststyle = 3 " tree
 let g:ftplugin_sql_omni_key = '<C-K>'
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<C-n>'
+let g:go_fmt_command = 'goimports'
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
 packadd! matchit
