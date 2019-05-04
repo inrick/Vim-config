@@ -29,7 +29,7 @@ set shiftwidth=2
 set tabstop=8
 set nolist
 set listchars=tab:»\ ,trail:·
-set nowrap
+set wrap
 set nolinebreak
 set nobreakindent
 set formatoptions+=j
@@ -95,6 +95,10 @@ cnoremap <Esc>p <Up>
 cnoremap <Esc>n <Down>
 cnoremap <Esc><BS> <C-W>
 
+noremap           j          gj
+noremap           k          gk
+noremap           gj         j
+noremap           gk         k
 noremap           ¤          $
 nnoremap          Q          gqip
 vnoremap          Q          gq
