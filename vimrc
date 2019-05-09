@@ -13,9 +13,6 @@ set nonumber
 set norelativenumber
 set showmatch
 set mouse=a
-if !has('nvim')
-  set ttymouse=sgr
-end
 set scrolloff=3
 set nospell
 set spelllang=en
@@ -50,6 +47,14 @@ set omnifunc=syntaxcomplete#Complete
 if has('unix')
   set clipboard=unnamedplus
 endif
+
+" vim/nvim split
+if has('nvim')
+  set inccommand=nosplit
+else
+  set ttymouse=sgr
+  packadd! matchit
+end
 
 syntax on
 filetype plugin indent on
@@ -167,7 +172,6 @@ let g:SuperTabContextDefaultCompletionType = '<C-n>'
 let g:go_fmt_command = 'goimports'
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
-packadd! matchit
 
 if executable('opam')
   let s:opamshare = substitute(system('opam config var share'),'\n$','','''')

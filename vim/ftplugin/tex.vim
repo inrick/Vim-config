@@ -21,6 +21,8 @@ vmap <buffer> <S-F7> <Plug>LatexEnvWrapSelection
 
 " Add the following to okular for inverse search:
 " gvim --remote +%l "+normal %c|" %f
+" Or, for neovim (dropped column since it seems to have no effect):
+" nvr --remote-silent %f -c %l
 
 function! s:ViewPdf()
   let cmd = '!okular --unique %<.pdf\#src:' . line('.') . expand('%:p') . ' > /dev/null 2>&1 &'
