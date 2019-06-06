@@ -1,4 +1,5 @@
 setlocal noexpandtab
 setlocal tabstop=2
 setlocal nolist
-setlocal makeprg=go\ build
+nnoremap <F6> :GoTest<CR>
+nnoremap <F8> :GoBuild<CR>
