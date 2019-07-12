@@ -170,6 +170,10 @@ let g:ftplugin_sql_omni_key = '<C-K>'
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<C-n>'
 let g:go_fmt_command = 'goimports'
+let g:syntastic_mode_map = {
+  \ 'mode': 'passive',
+  \ 'active_filetypes': [],
+  \ 'passive_filestypes': [] }
 let g:deoplete#enable_at_startup = 1
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
