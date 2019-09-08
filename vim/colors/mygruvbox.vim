@@ -20,7 +20,7 @@ hi CursorIM         ctermfg=none ctermbg=none cterm=none      guifg=#f9f5d7 guib
 hi CursorColumn     ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guibg=#ebdbb2 gui=none
 hi CursorLine       ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guibg=#ebdbb2 gui=none
 hi DiffAdd          ctermfg=2    ctermbg=none cterm=none      guifg=#79740e guibg=#f9f5d7 gui=none
-hi DiffChange       ctermfg=7    ctermbg=none cterm=none      guifg=#ebdbb2 guibg=#f9f5d7 gui=none
+hi DiffChange       ctermfg=5    ctermbg=none cterm=none      guifg=#8f3f71 guibg=#f9f5d7 gui=none
 hi DiffDelete       ctermfg=1    ctermbg=none cterm=none      guifg=#9d0006 guibg=#f9f5d7 gui=none
 hi DiffText         ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guibg=#ebdbb2 gui=none
 hi Directory        ctermfg=none ctermbg=none cterm=none      guifg=#000000 guibg=#f9f5d7 gui=none
