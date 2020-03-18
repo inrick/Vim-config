@@ -83,9 +83,10 @@ if executable('rg')
   set grepformat=%f:%l:%c:%m
 endif
 
-" Open quickfix/location window after running command populating them
-autocmd QuickFixCmdPost [^l]* cwindow
-autocmd QuickFixCmdPost l*    lwindow
+" Open quickfix/location window across the bottom after running a command
+" populating them
+autocmd QuickFixCmdPost [^l]* botright cwindow
+autocmd QuickFixCmdPost l*    botright lwindow
 
 let mapleader      = ','
 let maplocalleader = '\'
