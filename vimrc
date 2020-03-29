@@ -106,11 +106,13 @@ noremap           k          gk
 noremap           gj         j
 noremap           gk         k
 noremap           ¤          $
+noremap           <up>       <C-y>
+noremap           <down>     <C-e>
 nnoremap          Q          gqip
 vnoremap          Q          gq
 inoremap <silent> <Del>      <C-O>x
 nnoremap <silent> <BS>       :nohlsearch<CR>
-nnoremap <silent> <F7>       :call <SID>ToggleHints()<CR>
+nnoremap <silent> <F2>       :call <SID>ToggleHints()<CR>
 nnoremap          <F8>       :make<CR>
 nnoremap          <leader>b  :ls<CR>:b<space>
 nnoremap          <leader>cd :cd %:p:h<CR>
