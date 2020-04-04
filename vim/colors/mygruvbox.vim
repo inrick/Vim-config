@@ -11,7 +11,7 @@ endif
 let g:colors_name = 'mygruvbox'
 
 hi ColorColumn      ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guibg=#ebdbb2 gui=none
-hi Comment          ctermfg=15   ctermbg=none cterm=italic    guifg=#928374 guibg=#f9f5d7 gui=italic
+hi Comment          ctermfg=15   ctermbg=none cterm=none      guifg=#928374 guibg=#f9f5d7 gui=none
 hi Conceal          ctermfg=none ctermbg=none cterm=none      guifg=#000000 guibg=#f9f5d7 gui=none
 hi Constant         ctermfg=6    ctermbg=none cterm=none      guifg=#427b58 guibg=#f9f5d7 gui=none
 hi lCursor          ctermfg=none ctermbg=none cterm=none      guifg=#f9f5d7 guibg=#000000 gui=none
@@ -51,10 +51,10 @@ hi Search           ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guib
 hi SignColumn       ctermfg=none ctermbg=none cterm=none      guifg=#000000 guibg=#f9f5d7 gui=none
 hi Special          ctermfg=1    ctermbg=none cterm=none      guifg=#9d0006 guibg=#f9f5d7 gui=none
 hi SpecialKey       ctermfg=1    ctermbg=none cterm=none      guifg=#9d0006 guibg=#f9f5d7 gui=none
-hi SpellBad         ctermfg=none ctermbg=none cterm=undercurl guifg=#000000 guibg=#f9f5d7 gui=undercurl
-hi SpellCap         ctermfg=none ctermbg=none cterm=undercurl guifg=#000000 guibg=#f9f5d7 gui=undercurl
-hi SpellLocal       ctermfg=none ctermbg=none cterm=undercurl guifg=#000000 guibg=#f9f5d7 gui=undercurl
-hi SpellRare        ctermfg=5    ctermbg=none cterm=undercurl guifg=#8f3f71 guibg=#f9f5d7 gui=undercurl
+hi SpellBad         ctermfg=none ctermbg=none cterm=underline guifg=#000000 guibg=#f9f5d7 gui=underline
+hi SpellCap         ctermfg=none ctermbg=none cterm=underline guifg=#000000 guibg=#f9f5d7 gui=underline
+hi SpellLocal       ctermfg=none ctermbg=none cterm=underline guifg=#000000 guibg=#f9f5d7 gui=underline
+hi SpellRare        ctermfg=5    ctermbg=none cterm=underline guifg=#8f3f71 guibg=#f9f5d7 gui=underline
 hi Statement        ctermfg=1    ctermbg=none cterm=none      guifg=#9d0006 guibg=#f9f5d7 gui=none
 hi StatusLine       ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guibg=#ebdbb2 gui=none
 hi StatusLineNC     ctermfg=15   ctermbg=7    cterm=none      guifg=#928374 guibg=#ebdbb2 gui=none
