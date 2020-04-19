@@ -113,6 +113,8 @@ vnoremap          Q          gq
 inoremap <silent> <Del>      <C-O>x
 nnoremap <silent> <BS>       :nohlsearch<CR>
 nnoremap <silent> <F2>       :call <SID>ToggleHints()<CR>
+noremap           <F4>       :Lexplore<CR>
+nnoremap          <F6>       :make test<CR>
 nnoremap          <F8>       :make<CR>
 nnoremap          <leader>b  :ls<CR>:b<space>
 nnoremap          <leader>cd :cd %:p:h<CR>
