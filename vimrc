@@ -27,9 +27,9 @@ set tabstop=8
 set nolist
 set listchars=tab:»\ ,trail:·
 set wrap
-set nolinebreak
-set nobreakindent
-set formatoptions+=j
+set linebreak
+set breakindent
+set formatoptions+=lj
 set nojoinspaces
 set textwidth=79
 set display+=lastline
