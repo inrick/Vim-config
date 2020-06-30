@@ -5,7 +5,7 @@ set noruler
 set showcmd
 set showmode
 set laststatus=2
-set statusline=%f\ %(%M\ %)%(%R\ %)%(\ \ %{&ft}%)%=\ %l,%c
+set statusline=%f\ %(%M\ %)%(%R\ %)%(\ \ %{&ft}\ %)%(%{&paste?'\ \ PASTE':''}%)%=\ %l,%c
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
