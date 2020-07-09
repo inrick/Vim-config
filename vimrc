@@ -25,10 +25,11 @@ set softtabstop=2
 set shiftwidth=2
 set tabstop=8
 set nolist
-set listchars=tab:»\ ,trail:·
+set listchars=tab:→\ ,trail:~
 set wrap
 set linebreak
-set breakindent
+set nobreakindent
+set showbreak=→
 set formatoptions+=lj
 set nojoinspaces
 set textwidth=79
