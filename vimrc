@@ -24,6 +24,7 @@ set expandtab
 set softtabstop=2
 set shiftwidth=2
 set tabstop=8
+set virtualedit=all
 set nolist
 set listchars=tab:→\ ,trail:~
 set wrap
@@ -62,6 +63,7 @@ filetype plugin indent on
 set novisualbell
 set t_vb=
 set t_Co=256 " Force 256 colors
+set termguicolors
 colorscheme mygruvbox
 
 if has('gui_running')
