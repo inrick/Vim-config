@@ -11,7 +11,7 @@ endif
 let g:colors_name = 'mygruvbox'
 
 hi ColorColumn      ctermfg=none ctermbg=7    cterm=none      guifg=#000000 guibg=#ebdbb2 gui=none
-hi Comment          ctermfg=15   ctermbg=none cterm=none      guifg=#928374 guibg=#f9f5d7 gui=none
+hi Comment          ctermfg=8    ctermbg=none cterm=none      guifg=#504945 guibg=#f9f5d7 gui=none
 hi Conceal          ctermfg=none ctermbg=none cterm=none      guifg=#000000 guibg=#f9f5d7 gui=none
 hi Constant         ctermfg=6    ctermbg=none cterm=none      guifg=#427b58 guibg=#f9f5d7 gui=none
 hi lCursor          ctermfg=none ctermbg=none cterm=none      guifg=#f9f5d7 guibg=#000000 gui=none
