@@ -202,3 +202,8 @@ if executable('opam')
     execute 'set rtp+=' . s:opamshare . '/ocp-index/vim'
   endif
 endif
+
+packloadall
+if has('nvim')
+  lua require'colorizer'.setup()
+end
