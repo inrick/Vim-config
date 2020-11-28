@@ -165,8 +165,12 @@ function! s:ToggleHints()
 endfunction
 
 " :help special-buffers
-function! s:CreateSplitScratch()
-  split
+function! s:CreateSplitScratch(split)
+  if a:split == 1
+    split
+  elseif a:split == 2
+    vsplit
+  end
   enew
   setlocal buftype=nofile
   setlocal bufhidden=hide
@@ -174,7 +178,9 @@ function! s:CreateSplitScratch()
 endfunction
 
 command! -nargs=+ -complete=file -bar Grep silent! grep! <args> | redraw!
-command! Scratch call <SID>CreateSplitScratch()
+command! Scratch  call <SID>CreateSplitScratch(0)
+command! HScratch call <SID>CreateSplitScratch(1)
+command! VScratch call <SID>CreateSplitScratch(2)
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
