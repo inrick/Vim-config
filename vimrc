@@ -31,7 +31,7 @@ set wrap
 set linebreak
 set nobreakindent
 set showbreak=→
-set formatoptions+=lj
+set formatoptions+=ljr
 set nojoinspaces
 set textwidth=79
 set display+=lastline
@@ -116,7 +116,7 @@ vnoremap          Q          gq
 inoremap <silent> <Del>      <C-O>x
 nnoremap <silent> <BS>       :nohlsearch<CR>
 nnoremap <silent> <F2>       :call <SID>ToggleHints()<CR>
-noremap           <F4>       :Lexplore<CR>
+nnoremap          <F4>       :Lexplore<CR>
 nnoremap          <F6>       :make test<CR>
 nnoremap          <F8>       :make<CR>
 nnoremap          <leader>b  :ls<CR>:b<space>
@@ -124,15 +124,17 @@ nnoremap          <leader>cd :cd %:p:h<CR>
 nnoremap          <leader>gt :vimgrep /TODO\\|FIXME\\|XXX/j %<CR>
 nnoremap          <leader>l  :Grep<space>
 nnoremap          <leader>w  :update<CR>
+nnoremap          <C-q>      :close<CR>
+nnoremap          <F12>      :%y<CR>
 
 " Plugin mappings
-noremap           <leader>e  :Explore<CR>
 nnoremap          <leader>f  :Files<CR>
 nnoremap          <C-p>      :GFiles<CR>
-nnoremap          <leader>gb :Gblame<CR>
-nnoremap          <leader>gc :Gcommit<CR>
-nnoremap          <leader>gd :Gdiff<CR>
-nnoremap          <leader>gs :Gstatus<CR>
+nnoremap          <leader>gb :Git blame<CR>
+nnoremap          <leader>gc :Git commit<CR>
+nnoremap          <leader>gd :Gdiffsplit<CR>
+nnoremap          <leader>gs :Git<CR>
+nmap              <leader>e  <Plug>NetrwShrink
 nmap              <leader>r  <Plug>NERDCommenterComment
 vmap              <leader>r  <Plug>NERDCommenterComment
 nmap              <leader>t  <Plug>NERDCommenterUncomment
@@ -145,6 +147,8 @@ nmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
 vmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
 nmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
 vmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
+nmap              <leader>a; :Tabularize /;\zs/l0l1<CR>
+vmap              <leader>a; :Tabularize /;\zs/l0l1<CR>
 nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
 
@@ -174,6 +178,7 @@ command! Scratch call <SID>CreateSplitScratch()
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
+let g:netrw_usetab = 1 " enable c-tab
 let g:ftplugin_sql_omni_key = '<C-K>'
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<C-n>'
@@ -203,6 +208,7 @@ if executable('opam')
   endif
 endif
 
+" Load all packages before calling their exposed functions
 packloadall
 if has('nvim')
   lua require'colorizer'.setup()
