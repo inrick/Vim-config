@@ -41,14 +41,18 @@ install_plugins() {
     if [[ -e "$plugin_path" ]]; then
       if $update_plugins; then
         echo "Updating $name..."
-        ( cd "$plugin_path" && git pull --ff-only )
+        ( cd "$plugin_path" && git pull --ff-only && git submodule update --init)
       fi
     else
       echo "Installing $name..."
-      git clone "$r" "$plugin_path"
+      git clone --recursive "$r" "$plugin_path"
     fi
   done
-  vim "+helptags ALL" +qall
+  if command -v nvim > /dev/null; then
+    nvim "+helptags ALL" +qall
+  else
+    vim "+helptags ALL" +qall
+  fi
 }
 
 install() {
