@@ -37,6 +37,7 @@ set textwidth=79
 set display+=lastline
 set nofoldenable
 set foldmethod=manual
+set foldnestmax=2
 set wildmenu
 set wildmode=list:longest,full
 set wildignorecase
@@ -49,6 +50,8 @@ set omnifunc=syntaxcomplete#Complete
 if has('unix')
   set clipboard=unnamedplus
 endif
+set hidden
+set updatetime=1000
 
 " vim/nvim split
 if has('nvim')
@@ -113,13 +116,15 @@ noremap           <up>       <C-y>
 noremap           <down>     <C-e>
 nnoremap          Q          gqip
 vnoremap          Q          gq
+xnoremap          p          pgvy
 inoremap <silent> <Del>      <C-O>x
 nnoremap <silent> <BS>       :nohlsearch<CR>
 nnoremap <silent> <F2>       :call <SID>ToggleHints()<CR>
 nnoremap          <F4>       :Lexplore<CR>
-nnoremap          <F6>       :make test<CR>
-nnoremap          <F8>       :make<CR>
-nnoremap          <leader>b  :ls<CR>:b<space>
+nnoremap          <F5>       :make! debug<CR>
+nnoremap          <F6>       :make! test<CR>
+nnoremap          <F7>       :make! run<CR>
+nnoremap          <F8>       :make!<CR>
 nnoremap          <leader>cd :cd %:p:h<CR>
 nnoremap          <leader>gt :vimgrep /TODO\\|FIXME\\|XXX/j %<CR>
 nnoremap          <leader>l  :Grep<space>
@@ -127,7 +132,11 @@ nnoremap          <leader>w  :update<CR>
 nnoremap          <C-q>      :close<CR>
 nnoremap          <F12>      :%y<CR>
 
+" Terminal mode bindings
+tnoremap          <Esc>      <C-\><C-n>
+
 " Plugin mappings
+nnoremap          <leader>b  :Buffers<CR>
 nnoremap          <leader>f  :Files<CR>
 nnoremap          <C-p>      :GFiles<CR>
 nnoremap          <leader>gb :Git blame<CR>
