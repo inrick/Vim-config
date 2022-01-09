@@ -9,7 +9,7 @@ set statusline=%f\ %(%M\ %)%(%R\ %)%(\ \ %{&ft}\ %)%(%{&paste?'\ \ PASTE':''}%)%
 set history=100
 set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
-set nonumber
+set number
 set norelativenumber
 set showmatch
 set mouse=a
@@ -29,7 +29,7 @@ set nolist
 set listchars=tab:→\ ,trail:~
 set wrap
 set linebreak
-set nobreakindent
+set breakindent
 set showbreak=→
 set formatoptions+=ljr
 set nojoinspaces
