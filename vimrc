@@ -206,22 +206,6 @@ let g:deoplete#enable_at_startup = 1
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
 
-if executable('opam')
-  let s:opamshare = substitute(system('opam config var share'),'\n$','','''')
-  if executable('ocamlmerlin')
-    execute 'set rtp+=' . s:opamshare . '/merlin/vim'
-    let g:merlin_split_method = 'vertical'
-    let g:syntastic_ocaml_checkers = ['merlin']
-    autocmd FileType ocaml call SuperTabSetDefaultCompletionType('<C-x><C-o>')
-    autocmd FileType ocaml nmap <buffer> <C-]> :MerlinLocate<CR>
-  endif
-  if executable('ocp-indent')
-    execute 'set rtp+=' . s:opamshare . '/ocp-indent/vim'
-  endif
-  if executable('ocp-index')
-    execute 'set rtp+=' . s:opamshare . '/ocp-index/vim'
-  endif
-endif
 
 " Load all packages before calling their exposed functions
 packloadall
