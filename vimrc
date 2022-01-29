@@ -197,20 +197,19 @@ let g:netrw_usetab = 1 " enable c-tab
 let g:ftplugin_sql_omni_key = '<C-K>'
 let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabContextDefaultCompletionType = '<C-n>'
+let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = 'goimports'
-let g:syntastic_mode_map = {
-  \ 'mode': 'passive',
-  \ 'active_filetypes': [],
-  \ 'passive_filestypes': [] }
-let g:deoplete#enable_at_startup = 1
+
+autocmd FileType go   call SuperTabSetDefaultCompletionType('<C-x><C-o>')
+autocmd FileType rust call SuperTabSetDefaultCompletionType('<C-x><C-o>')
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
 
-
 " Load all packages before calling their exposed functions
 packloadall
+
 if has('nvim')
-  lua require'colorizer'.setup()
+  lua require 'myconf'
 end
 
 silent! helptags ALL

@@ -6,14 +6,14 @@ readonly PLUGINS=$SOURCE/vim/pack/plugins/start
 
 typeset -a repos
 readonly repos=(
-  'https://github.com/Shougo/deoplete.nvim'
   'https://github.com/ervandew/supertab'
   'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
   'https://github.com/junegunn/fzf.vim'
   'https://github.com/norcalli/nvim-colorizer.lua'
+  'https://github.com/neovim/nvim-lspconfig'
+  'https://github.com/onsails/lspkind-nvim'
   'https://github.com/scrooloose/nerdcommenter'
-  'https://github.com/scrooloose/syntastic'
   'https://github.com/tpope/vim-fugitive'
   'https://github.com/tpope/vim-surround'
   'https://github.com/tpope/vim-vinegar'
