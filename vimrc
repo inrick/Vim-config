@@ -212,3 +212,5 @@ packloadall
 if has('nvim')
   lua require'colorizer'.setup()
 end
+
+silent! helptags ALL
