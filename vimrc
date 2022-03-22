@@ -120,7 +120,8 @@ xnoremap          p          pgvy
 inoremap <silent> <Del>      <C-O>x
 nnoremap <silent> <BS>       :nohlsearch<CR>
 nnoremap <silent> <F2>       :call <SID>ToggleHints()<CR>
-nnoremap          <F4>       :Lexplore<CR>
+nnoremap <silent> <F4>       :NvimTreeToggle<CR>
+nnoremap <silent> -          :NvimTreeFocus<CR>
 nnoremap          <F5>       :make! debug<CR>
 nnoremap          <F6>       :make! test<CR>
 nnoremap          <F7>       :make! run<CR>

@@ -67,6 +67,12 @@ require('lspkind').init({
     Struct = "פּ",
     Event = "",
     Operator = "",
-    TypeParameter = ""
+    TypeParameter = "",
+  },
+})
+
+require('nvim-tree').setup({
+  view = {
+    width = 35,
   },
 })

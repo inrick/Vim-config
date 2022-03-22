@@ -85,3 +85,22 @@ hi! link diffRemoved DiffDelete
 hi! link diffChanged DiffChange
 
 hi! link luaFunction Special
+
+hi! link NvimTreeExecFile         Special
+hi! link NvimTreeSpecialFile      Special
+hi! link NvimTreeRootFolder       LineNr
+hi! link NvimTreeFolderIcon       LineNr
+hi! link NvimTreeIndentMarker     LineNr
+hi! link NvimTreeGitDirty         LineNr
+hi! link NvimTreeGitStaged        LineNr
+hi! link NvimTreeGitMerge         LineNr
+hi! link NvimTreeGitRenamed       LineNr
+hi! link NvimTreeGitNew           LineNr
+hi! link NvimTreeGitDeleted       LineNr
+hi! link NvimTreeSymlink          Normal
+hi! link NvimTreeFolderName       Normal
+hi! link NvimTreeEmptyFolderName  Normal
+hi! link NvimTreeOpenedFolderName Normal
+hi! link NvimTreeOpenedFile       Normal
+hi! link NvimTreeSpecialFile      Normal
+hi! link NvimTreeImageFile        Normal

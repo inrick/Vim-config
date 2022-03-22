@@ -10,13 +10,13 @@ readonly repos=(
   'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
   'https://github.com/junegunn/fzf.vim'
+  'https://github.com/kyazdani42/nvim-tree.lua'
   'https://github.com/norcalli/nvim-colorizer.lua'
   'https://github.com/neovim/nvim-lspconfig'
   'https://github.com/onsails/lspkind-nvim'
   'https://github.com/scrooloose/nerdcommenter'
   'https://github.com/tpope/vim-fugitive'
   'https://github.com/tpope/vim-surround'
-  'https://github.com/tpope/vim-vinegar'
   'https://github.com/vim-scripts/LaTeX-Box'
 )
 
