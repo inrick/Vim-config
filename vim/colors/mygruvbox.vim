@@ -83,3 +83,5 @@ hi WildMenu         ctermfg=15   ctermbg=NONE cterm=reverse   guifg=#928374 guib
 hi! link diffAdded   DiffAdd
 hi! link diffRemoved DiffDelete
 hi! link diffChanged DiffChange
+
+hi! link luaFunction Special
