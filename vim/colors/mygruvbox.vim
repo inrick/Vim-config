@@ -64,7 +64,7 @@ hi StatusLineTermNC ctermfg=15   ctermbg=7    cterm=NONE      guifg=#928374 guib
 hi Substitute       ctermfg=15   ctermbg=NONE cterm=reverse   guifg=fg      guibg=#928374 gui=NONE
 hi TabLine          ctermfg=8    ctermbg=7    cterm=NONE      guifg=#504945 guibg=#ebdbb2 gui=NONE
 hi TabLineFill      ctermfg=NONE ctermbg=7    cterm=NONE      guifg=fg      guibg=#ebdbb2 gui=NONE
-hi TabLineSel       ctermfg=15   ctermbg=NONE cterm=reverse   guifg=fg      guibg=#928374 gui=NONE
+hi TabLineSel       ctermfg=7    ctermbg=15   cterm=NONE      guifg=#ebdbb2 guibg=#928374 gui=NONE
 hi Terminal         ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
 hi TermCursor       ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
 hi TermCursorNC     ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
@@ -104,3 +104,4 @@ hi! link NvimTreeOpenedFolderName Normal
 hi! link NvimTreeOpenedFile       Normal
 hi! link NvimTreeSpecialFile      Normal
 hi! link NvimTreeImageFile        Normal
+hi! link NvimTreeWindowPicker     TabLineSel
