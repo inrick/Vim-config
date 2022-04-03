@@ -66,7 +66,7 @@ hi TabLine          ctermfg=8    ctermbg=7    cterm=NONE      guifg=#504945 guib
 hi TabLineFill      ctermfg=NONE ctermbg=7    cterm=NONE      guifg=fg      guibg=#ebdbb2 gui=NONE
 hi TabLineSel       ctermfg=7    ctermbg=15   cterm=NONE      guifg=#ebdbb2 guibg=#928374 gui=NONE
 hi Terminal         ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
-hi TermCursor       ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
+hi TermCursor       ctermfg=NONE ctermbg=NONE cterm=reverse   guifg=fg      guibg=NONE    gui=reverse
 hi TermCursorNC     ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
 hi Title            ctermfg=NONE ctermbg=NONE cterm=NONE      guifg=fg      guibg=NONE    gui=NONE
 hi Todo             ctermfg=1    ctermbg=NONE cterm=NONE      guifg=#9d0006 guibg=NONE    gui=NONE
