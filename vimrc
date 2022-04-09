@@ -67,6 +67,7 @@ set novisualbell
 set t_vb=
 set t_Co=256 " Force 256 colors
 set termguicolors
+set background=light
 colorscheme mygruvbox
 
 if has('gui_running')
@@ -130,6 +131,7 @@ nnoremap          <leader>cd :cd %:p:h<CR>
 nnoremap          <leader>gt :vimgrep /TODO\\|FIXME\\|XXX/j %<CR>
 nnoremap          <leader>l  :Grep<space>
 nnoremap          <leader>w  :update<CR>
+nnoremap          <C-s>      :update<CR>
 nnoremap          <C-q>      :close<CR>
 nnoremap          <F12>      :%y<CR>
 
