@@ -204,6 +204,10 @@ let g:go_fmt_experimental = 1
 let g:go_doc_max_height = 40
 let g:go_code_completion_enabled = 0
 let g:go_highlight_diagnostic_errors = 0
+let g:vimwiki_list = [{
+  \ 'path': '~/Documents/wiki/text',
+  \ 'path_html': '~/Documents/wiki/html'
+  \ }]
 
 autocmd FileType go   call SuperTabSetDefaultCompletionType('<C-x><C-o>')
 autocmd FileType rust call SuperTabSetDefaultCompletionType('<C-x><C-o>')
