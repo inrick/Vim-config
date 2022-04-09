@@ -127,3 +127,5 @@ hi! link NvimTreeOpenedFile       Normal
 hi! link NvimTreeSpecialFile      Normal
 hi! link NvimTreeImageFile        Normal
 hi! link NvimTreeWindowPicker     TabLineSel
+
+hi! link FocusedSymbol            TabLine

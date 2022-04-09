@@ -76,3 +76,9 @@ require('nvim-tree').setup({
     width = 35,
   },
 })
+
+require('nvim-treesitter.configs').setup({
+  ensure_installed = {
+    'go', 'lua', 'c', 'python', 'rust',
+  }
+})
