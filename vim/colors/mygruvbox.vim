@@ -90,19 +90,21 @@ hi! link diffChanged DiffChange
 " LSP
 hi DiagnosticError          guifg=#9d0006 guibg=NONE    gui=NONE
 hi DiagnosticSignError      guifg=#9d0006 guibg=#ebdbb2 gui=NONE
-hi DiagnosticUnderlineError guifg=#9d0006 guibg=NONE    gui=undercurl
 hi DiagnosticWarn           guifg=#b57614 guibg=NONE    gui=NONE
 hi DiagnosticSignWarn       guifg=#b57614 guibg=#ebdbb2 gui=NONE
-hi DiagnosticUnderlineWarn  guifg=#b57614 guibg=NONE    gui=undercurl
 hi DiagnosticInfo           guifg=#458588 guibg=NONE    gui=NONE
 hi DiagnosticSignInfo       guifg=#458588 guibg=#ebdbb2 gui=NONE
-hi DiagnosticUnderlineInfo  guifg=#458588 guibg=NONE    gui=undercurl
 hi DiagnosticHint           guifg=#458588 guibg=NONE    gui=NONE
 hi DiagnosticSignHint       guifg=#458588 guibg=#ebdbb2 gui=NONE
-hi DiagnosticUnderlineHint  guifg=#458588 guibg=NONE    gui=undercurl
 hi LspReferenceText         guifg=#b57614 guibg=NONE    gui=NONE
 hi LspReferenceRead         guifg=#b57614 guibg=NONE    gui=NONE
 hi LspReferenceWrite        guifg=#b57614 guibg=NONE    gui=NONE
+
+" Don't highlight the code different, it becomes too difficult to read.
+hi DiagnosticUnderlineError guifg=NONE    guibg=NONE    gui=NONE
+hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE    gui=NONE
+hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE    gui=NONE
+hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE    gui=NONE
 
 " Language additions
 hi! link luaFunction Special
