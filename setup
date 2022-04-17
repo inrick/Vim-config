@@ -6,11 +6,17 @@ readonly PLUGINS=$SOURCE/vim/pack/plugins/start
 
 typeset -a repos
 readonly repos=(
-  'https://github.com/ervandew/supertab'
   'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
   'https://github.com/junegunn/fzf.vim'
   'https://github.com/kyazdani42/nvim-tree.lua'
+  'https://github.com/hrsh7th/nvim-cmp'
+  'https://github.com/hrsh7th/cmp-nvim-lsp'
+  'https://github.com/hrsh7th/cmp-buffer'
+  'https://github.com/hrsh7th/cmp-path'
+  'https://github.com/hrsh7th/cmp-cmdline'
+  'https://github.com/L3MON4D3/LuaSnip'
+  'https://github.com/saadparwaiz1/cmp_luasnip'
   'https://github.com/norcalli/nvim-colorizer.lua'
   'https://github.com/neovim/nvim-lspconfig'
   'https://github.com/nvim-treesitter/nvim-treesitter'

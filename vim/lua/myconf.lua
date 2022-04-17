@@ -1,5 +1,83 @@
 require('colorizer').setup()
 
+local luasnip = require'luasnip'
+
+-- Automatic completion
+local cmp = require'cmp'
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end
+  },
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-6),
+    ['<C-f>'] = cmp.mapping.scroll_docs(6),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-g>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<PageUp>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        for _ = 1, 6 do cmp.select_prev_item() end
+      else
+        fallback()
+      end
+    end),
+    ['<PageDown>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        for _ = 1, 6 do cmp.select_next_item() end
+      else
+        fallback()
+      end
+    end),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+  }, {
+    { name = 'buffer' },
+  }, {
+    { name = 'path' },
+  })
+})
+
+-- Search and command completion
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  },
+})
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities())
+
 -- LSP
 for key, cmd in pairs({
   ['<space>e'] = '<cmd>lua vim.diagnostic.open_float()<CR>',
@@ -22,6 +100,7 @@ local on_attach = function(client, bufnr)
     ['<C-k>']     = '<cmd>lua vim.lsp.buf.signature_help()<CR>',
     ['<space>f']  = '<cmd>lua vim.lsp.buf.formatting_sync({}, 1000)<CR>',
     ['<space>rn'] = '<cmd>lua vim.lsp.buf.rename()<CR>',
+    ['<space>ca'] = '<cmd>lua vim.lsp.buf.code_action()<CR>',
     ['gr']        = '<cmd>lua vim.lsp.buf.references()<CR>',
   }) do
     vim.api.nvim_buf_set_keymap(
@@ -29,47 +108,27 @@ local on_attach = function(client, bufnr)
   end
 end
 
-for _, s in ipairs({ 'gopls' }) do
-  require('lspconfig')[s].setup {
+local lspconfig = require('lspconfig')
+for _, s in ipairs({ 'gopls', 'rust_analyzer' }) do
+  lspconfig[s].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     },
+    capabilities = capabilities,
   }
 end
 
 -- LSP icons
-require('lspkind').init({
-  mode = 'symbol_text',
-  preset = 'default',
-  symbol_map = {
-    Text = "",
-    Method = "",
-    Function = "",
-    Constructor = "",
-    Field = "ﰠ",
-    Variable = "",
-    Class = "ﴯ",
-    Interface = "",
-    Module = "",
-    Property = "ﰠ",
-    Unit = "塞",
-    Value = "",
-    Enum = "",
-    Keyword = "",
-    Snippet = "",
-    Color = "",
-    File = "",
-    Reference = "",
-    Folder = "",
-    EnumMember = "",
-    Constant = "",
-    Struct = "פּ",
-    Event = "",
-    Operator = "",
-    TypeParameter = "",
+local lspkind = require('lspkind')
+cmp.setup {
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+    }),
   },
-})
+}
 
 require('nvim-tree').setup({
   view = {

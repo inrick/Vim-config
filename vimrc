@@ -198,8 +198,6 @@ command! VScratch call <SID>CreateSplitScratch(2)
 let g:netrw_liststyle = 3 " tree
 let g:netrw_usetab = 1 " enable c-tab
 let g:ftplugin_sql_omni_key = '<C-K>'
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabContextDefaultCompletionType = '<C-n>'
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = 'goimports'
 let g:go_fmt_experimental = 1
@@ -211,8 +209,6 @@ let g:vimwiki_list = [{
   \ 'path_html': '~/Documents/wiki/html'
   \ }]
 
-autocmd FileType go   call SuperTabSetDefaultCompletionType('<C-x><C-o>')
-autocmd FileType rust call SuperTabSetDefaultCompletionType('<C-x><C-o>')
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
 
