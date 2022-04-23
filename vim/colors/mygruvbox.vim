@@ -55,10 +55,10 @@ hi Search           guifg=fg      guibg=#ebdbb2 gui=NONE
 hi SignColumn       guifg=fg      guibg=#ebdbb2 gui=NONE
 hi Special          guifg=#9d0006 guibg=NONE    gui=NONE
 hi SpecialKey       guifg=#9d0006 guibg=NONE    gui=NONE
-hi SpellBad         guifg=fg      guibg=NONE    gui=underline
-hi SpellCap         guifg=fg      guibg=NONE    gui=underline
-hi SpellLocal       guifg=fg      guibg=NONE    gui=underline
-hi SpellRare        guifg=#8f3f71 guibg=NONE    gui=underline
+hi SpellBad         guifg=NONE    guibg=NONE    gui=undercurl
+hi SpellCap         guifg=NONE    guibg=NONE    gui=undercurl
+hi SpellLocal       guifg=NONE    guibg=NONE    gui=undercurl
+hi SpellRare        guifg=#8f3f71 guibg=NONE    gui=undercurl
 hi Statement        guifg=#9d0006 guibg=NONE    gui=NONE
 hi StatusLine       guifg=fg      guibg=#ebdbb2 gui=NONE
 hi StatusLineNC     guifg=#928374 guibg=#ebdbb2 gui=NONE
