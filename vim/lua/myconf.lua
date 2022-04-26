@@ -108,14 +108,73 @@ local on_attach = function(client, bufnr)
   end
 end
 
+-- LSP config
+local lspservers = {
+  'gopls', 'pyright',
+  rust_analyzer = {
+    -- See https://rust-analyzer.github.io/manual.html
+    settings = {
+      ['rust-analyzer'] = {
+        assist = {
+          importGranularity = 'module',
+          importPrefix = 'self',
+        },
+        cargo = {
+          allFeatures = true,
+          loadOutDirsFromCheck = true,
+        },
+        checkOnSave = {
+          command = 'clippy',
+        },
+        completion = {
+          autoimport = {
+            enable = true,
+          },
+        },
+        procMacro = {
+          enable = true,
+        },
+      },
+    },
+  },
+  -- Lua LSP config, taken from
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = 'LuaJIT',
+          path = runtime_path,
+        },
+        diagnostics = {
+          globals = {'vim'},
+        },
+        workspace = {
+          library = vim.api.nvim_get_runtime_file("", true),
+        },
+        telemetry = {
+          enable = false,
+        },
+      },
+    },
+  },
+}
 local lspconfig = require('lspconfig')
-for _, s in ipairs({ 'gopls', 'rust_analyzer' }) do
-  lspconfig[s].setup {
+for k, v in pairs(lspservers) do
+  local name, settings
+  if type(k) == 'number' then
+    name = v
+  else
+    name = k
+    settings = v.settings
+  end
+  lspconfig[name].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     },
     capabilities = capabilities,
+    settings = settings,
   }
 end
 
