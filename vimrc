@@ -26,7 +26,7 @@ set shiftwidth=2
 set tabstop=8
 set virtualedit=all
 set nolist
-set listchars=tab:→\ ,trail:~
+set listchars=tab:→\ ,trail:~,nbsp:+
 set wrap
 set linebreak
 set breakindent
@@ -153,6 +153,8 @@ nmap              <leader>t  <Plug>NERDCommenterUncomment
 vmap              <leader>t  <Plug>NERDCommenterUncomment
 nmap              <C-_>      <Plug>NERDCommenterToggle
 vmap              <C-_>      <Plug>NERDCommenterToggle
+nmap              <C-/>      <Plug>NERDCommenterToggle
+vmap              <C-/>      <Plug>NERDCommenterToggle
 nmap              <leader>a= :Tabularize /=<CR>
 vmap              <leader>a= :Tabularize /=<CR>
 nmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
@@ -193,6 +195,7 @@ command! -nargs=+ -complete=file -bar Grep silent! grep! <args> | redraw!
 command! Scratch  call <SID>CreateSplitScratch(0)
 command! HScratch call <SID>CreateSplitScratch(1)
 command! VScratch call <SID>CreateSplitScratch(2)
+command! Hints    call <SID>ToggleHints()
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
