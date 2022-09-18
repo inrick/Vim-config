@@ -200,3 +200,11 @@ require('nvim-treesitter.configs').setup({
     'go', 'lua', 'c', 'python', 'rust',
   }
 })
+
+require('indent_blankline').setup({
+  enable = true,
+  filetype = { 'python' },
+  char_highlight_list = {
+    "IndentBlanklineIndent",
+  },
+})

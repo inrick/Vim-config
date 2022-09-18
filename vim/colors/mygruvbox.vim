@@ -131,3 +131,5 @@ hi! link NvimTreeImageFile        Normal
 hi! link NvimTreeWindowPicker     TabLineSel
 
 hi! link FocusedSymbol            TabLine
+
+hi IndentBlanklineIndent          guifg=#ebdbb2 guibg=NONE gui=NONE

@@ -216,7 +216,7 @@ runtime! ftplugin/man.vim " For :Man and <leader>K
 packloadall
 
 if has('nvim')
-  lua require 'myconf'
+  lua require 'init'
 end
 
 silent! helptags ALL
