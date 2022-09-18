@@ -1,9 +1,9 @@
 require('colorizer').setup()
 
-local luasnip = require'luasnip'
+local luasnip = require 'luasnip'
 
 -- Automatic completion
-local cmp = require'cmp'
+local cmp = require 'cmp'
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -18,7 +18,8 @@ cmp.setup({
     ['<C-b>'] = cmp.mapping.scroll_docs(-6),
     ['<C-f>'] = cmp.mapping.scroll_docs(6),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-g>'] = cmp.mapping.abort(),
+    --['<C-g>'] = cmp.mapping.abort(),
+    ['<C-g>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<PageUp>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -40,14 +41,14 @@ cmp.setup({
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -85,10 +86,16 @@ for key, cmd in pairs({
   [']d']       = '<cmd>lua vim.diagnostic.goto_next()<CR>',
   ['<space>q'] = '<cmd>lua vim.diagnostic.setloclist()<CR>',
 }) do
-  vim.api.nvim_set_keymap('n', key, cmd, { noremap=true, silent=false })
+  vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = false })
 end
 
 local on_attach = function(client, bufnr)
+  -- TODO: only enable for whitelisted file types
+  --if client.resolved_capabilities.document_formatting then
+  --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync({}, 500)]]
+  --end
+
+  -- Keys
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   for key, cmd in pairs({
     ['gD']        = '<cmd>lua vim.lsp.buf.declaration()<CR>',
@@ -104,13 +111,13 @@ local on_attach = function(client, bufnr)
     ['gr']        = '<cmd>lua vim.lsp.buf.references()<CR>',
   }) do
     vim.api.nvim_buf_set_keymap(
-      bufnr, 'n', key, cmd, { noremap=true, silent=false })
+      bufnr, 'n', key, cmd, { noremap = true, silent = false })
   end
 end
 
 -- LSP config
 local lspservers = {
-  'gopls', 'pyright',
+  'clangd', 'gopls', 'pyright',
   rust_analyzer = {
     -- See https://rust-analyzer.github.io/manual.html
     settings = {
@@ -147,7 +154,7 @@ local lspservers = {
           path = runtime_path,
         },
         diagnostics = {
-          globals = {'vim'},
+          globals = { 'vim' },
         },
         workspace = {
           library = vim.api.nvim_get_runtime_file("", true),
@@ -159,7 +166,7 @@ local lspservers = {
     },
   },
 }
-local lspconfig = require('lspconfig')
+local lspconfig = require 'lspconfig'
 for k, v in pairs(lspservers) do
   local name, settings
   if type(k) == 'number' then
@@ -179,7 +186,7 @@ for k, v in pairs(lspservers) do
 end
 
 -- LSP icons
-local lspkind = require('lspkind')
+local lspkind = require 'lspkind'
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format({
