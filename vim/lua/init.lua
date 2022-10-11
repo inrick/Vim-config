@@ -5,6 +5,7 @@ local luasnip = require 'luasnip'
 -- Automatic completion
 local cmp = require 'cmp'
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -20,7 +21,7 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     --['<C-g>'] = cmp.mapping.abort(),
     ['<C-g>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
     ['<PageUp>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         for _ = 1, 6 do cmp.select_prev_item() end
