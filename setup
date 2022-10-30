@@ -27,7 +27,6 @@ readonly repos=(
   'https://github.com/tpope/vim-fugitive'
   'https://github.com/tpope/vim-surround'
   'https://github.com/vim-scripts/LaTeX-Box'
-  'https://github.com/vimwiki/vimwiki'
 )
 
 print_usage() {
