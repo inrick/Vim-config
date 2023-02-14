@@ -106,7 +106,7 @@ local on_attach = function(client, bufnr)
     ['K']         = '<cmd>lua vim.lsp.buf.hover()<CR>',
     ['gi']        = '<cmd>lua vim.lsp.buf.implementation()<CR>',
     ['<C-k>']     = '<cmd>lua vim.lsp.buf.signature_help()<CR>',
-    ['<space>f']  = '<cmd>lua vim.lsp.buf.formatting_sync({}, 1000)<CR>',
+    ['<space>f']  = '<cmd>lua vim.lsp.buf.format({})<CR>',
     ['<space>rn'] = '<cmd>lua vim.lsp.buf.rename()<CR>',
     ['<space>ca'] = '<cmd>lua vim.lsp.buf.code_action()<CR>',
     ['gr']        = '<cmd>lua vim.lsp.buf.references()<CR>',
@@ -131,9 +131,9 @@ local lspservers = {
           allFeatures = true,
           loadOutDirsFromCheck = true,
         },
-        checkOnSave = {
-          command = 'clippy',
-        },
+        --checkOnSave = {
+          --command = 'clippy',
+        --},
         completion = {
           autoimport = {
             enable = true,
@@ -147,7 +147,7 @@ local lspservers = {
   },
   -- Lua LSP config, taken from
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
-  sumneko_lua = {
+  lua_ls = {
     settings = {
       Lua = {
         runtime = {
