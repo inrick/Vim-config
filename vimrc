@@ -11,7 +11,7 @@ set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
 set number
 set norelativenumber
-set showmatch
+set noshowmatch
 set mouse=a
 set scrolloff=3
 set nospell
@@ -141,7 +141,7 @@ tnoremap          <Esc>      <C-\><C-n>
 " Plugin mappings
 nnoremap          <leader>b  :Buffers<CR>
 nnoremap          <leader>f  :Files<CR>
-nnoremap          <C-p>      :GFiles<CR>
+nnoremap          <C-p>      :GFiles -c -o --exclude-standard<CR>
 nnoremap          <leader>gb :Git blame<CR>
 nnoremap          <leader>gc :Git commit<CR>
 nnoremap          <leader>gd :Gdiffsplit<CR>
@@ -210,9 +210,6 @@ let g:go_highlight_diagnostic_errors = 0
 
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
-
-" Load all packages before calling their exposed functions
-packloadall
 
 if has('nvim')
   lua require 'init'
