@@ -146,7 +146,6 @@ nnoremap          <leader>gb :Git blame<CR>
 nnoremap          <leader>gc :Git commit<CR>
 nnoremap          <leader>gd :Gdiffsplit<CR>
 nnoremap          <leader>gs :Git<CR>
-nmap              <leader>e  <Plug>NetrwShrink
 nmap              <leader>r  <Plug>NERDCommenterComment
 vmap              <leader>r  <Plug>NERDCommenterComment
 nmap              <leader>t  <Plug>NERDCommenterUncomment
@@ -196,6 +195,11 @@ command! Scratch  call <SID>CreateSplitScratch(0)
 command! HScratch call <SID>CreateSplitScratch(1)
 command! VScratch call <SID>CreateSplitScratch(2)
 command! Hints    call <SID>ToggleHints()
+command! RemoveTrailing %s/\s\+$//
+command! Sqlup    s/\<\(select\|from\|where\|and\|or\|order\|by\|asc\|desc\|as\|create\|is\|null\)\>/\U\1/g
+command! O :!xdg-open %:p:h
+command! T split | terminal
+command! Format lua vim.lsp.buf.formatting_sync()
 
 " Plugin settings
 let g:netrw_liststyle = 3 " tree
