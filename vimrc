@@ -212,6 +212,8 @@ let g:go_doc_max_height = 40
 let g:go_code_completion_enabled = 0
 let g:go_highlight_diagnostic_errors = 0
 
+" Hacky matching brace insertion
+autocmd FileType c,go,rust inoremap {<CR> {<CR>}<Esc>ko
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
 

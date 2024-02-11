@@ -1,7 +1,10 @@
 "setlocal foldmethod=syntax
 "setlocal foldnestmax=1
-"setlocal copyindent
-"setlocal preserveindent
-"setlocal noexpandtab
+setlocal copyindent
+setlocal preserveindent
+setlocal noexpandtab
+setlocal shiftwidth=4
+setlocal softtabstop=4
+setlocal tabstop=4
 setlocal cindent
 setlocal cinoptions=g0,:0,l1,(0,W1s
