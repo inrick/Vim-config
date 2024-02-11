@@ -118,7 +118,7 @@ end
 
 -- LSP config
 local lspservers = {
-  'clangd', 'gopls', 'pyright',
+  'clangd', 'gopls', 'pyright', 'ruff_lsp',
   rust_analyzer = {
     -- See https://rust-analyzer.github.io/manual.html
     settings = {
@@ -203,16 +203,24 @@ require('nvim-tree').setup({
   },
 })
 
+require('nvim-web-devicons').setup({
+  color_icons = false,
+})
+
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     'go', 'lua', 'c', 'python', 'rust',
   }
 })
 
-require('indent_blankline').setup({
-  enable = true,
-  filetype = { 'python' },
-  char_highlight_list = {
-    "IndentBlanklineIndent",
+require('ibl').setup({
+  enabled = true,
+  indent = {
+    char = '▏',
+    highlight = { 'IndentBlanklineIndent' },
+  },
+  scope = {
+    enabled = false,
+    char = '▎',
   },
 })
