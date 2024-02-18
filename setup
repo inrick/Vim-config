@@ -81,9 +81,6 @@ install() {
   ln -s "$SOURCE/vimrc" "$TARGET/.config/nvim/init.vim"
 
   install_plugins false
-  if command -v patch > /dev/null; then
-    patch "$PLUGINS/LaTeX-Box/ftplugin/latex-box/common.vim" < "$SOURCE/latexbox.patch"
-  fi
 }
 
 case $1 in
