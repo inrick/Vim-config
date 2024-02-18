@@ -223,4 +223,13 @@ require('ibl').setup({
     enabled = false,
     char = '▎',
   },
+  exclude = {
+    filetypes = {
+      'conf',
+      'haskell',
+      'make',
+      'ocaml',
+    },
+    buftypes = {},
+  },
 })
