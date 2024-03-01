@@ -109,43 +109,37 @@ cmp.setup.cmdline(':', {
 })
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
-  vim.lsp.protocol.make_client_capabilities())
+  vim.lsp.protocol.make_client_capabilities()
+)
 
 -- LSP
-for key, cmd in pairs({
-  ['<space>e'] = '<cmd>lua vim.diagnostic.open_float()<CR>',
-  ['[d']       = '<cmd>lua vim.diagnostic.goto_prev()<CR>',
-  [']d']       = '<cmd>lua vim.diagnostic.goto_next()<CR>',
-  ['<space>q'] = '<cmd>lua vim.diagnostic.setloclist()<CR>',
-}) do
-  vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = false })
-end
-
-local on_attach = function(client, bufnr)
-  -- TODO: only enable for whitelisted file types
-  --if client.resolved_capabilities.document_formatting then
-  --vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync({}, 500)]]
-  --end
-
-  -- Keys
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-  for key, cmd in pairs({
-    ['gD']        = '<cmd>lua vim.lsp.buf.declaration()<CR>',
-    ['gd']        = '<cmd>lua vim.lsp.buf.definition()<CR>',
-    ['<C-]>']     = '<cmd>lua vim.lsp.buf.definition()<CR>',
-    ['gy']        = '<cmd>lua vim.lsp.buf.type_definition()<CR>',
-    ['K']         = '<cmd>lua vim.lsp.buf.hover()<CR>',
-    ['gi']        = '<cmd>lua vim.lsp.buf.implementation()<CR>',
-    ['<C-k>']     = '<cmd>lua vim.lsp.buf.signature_help()<CR>',
-    ['<space>f']  = '<cmd>lua vim.lsp.buf.format({})<CR>',
-    ['<space>rn'] = '<cmd>lua vim.lsp.buf.rename()<CR>',
-    ['<space>ca'] = '<cmd>lua vim.lsp.buf.code_action()<CR>',
-    ['gr']        = '<cmd>lua vim.lsp.buf.references()<CR>',
-  }) do
-    vim.api.nvim_buf_set_keymap(
-      bufnr, 'n', key, cmd, { noremap = true, silent = false })
-  end
-end
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local bufnr = args.buf
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    for key, fn in pairs({
+      ['<space>e']  = vim.diagnostic.open_float,
+      ['[d']        = vim.diagnostic.goto_prev,
+      [']d']        = vim.diagnostic.goto_next,
+      ['<space>q']  = vim.diagnostic.setloclist,
+      ['gD']        = vim.lsp.buf.declaration,
+      ['gd']        = vim.lsp.buf.definition,
+      ['<C-]>']     = vim.lsp.buf.definition,
+      ['gy']        = vim.lsp.buf.type_definition,
+      ['K']         = vim.lsp.buf.hover,
+      ['gi']        = vim.lsp.buf.implementation,
+      ['<C-k>']     = vim.lsp.buf.signature_help,
+      ['<space>f']  = function() vim.lsp.buf.format({ async = false }) end,
+      ['<space>rn'] = vim.lsp.buf.rename,
+      ['<space>ca'] = vim.lsp.buf.code_action,
+      ['gr']        = vim.lsp.buf.references,
+    }) do
+      vim.keymap.set('n', key, fn, {
+        buffer = bufnr, noremap = true, silent = false,
+      })
+    end
+  end,
+})
 
 -- LSP config
 local lspservers = {
@@ -177,19 +171,19 @@ local lspservers = {
     },
   },
   -- Lua LSP config, taken from
-  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sumneko_lua
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
   lua_ls = {
     settings = {
       Lua = {
         runtime = {
           version = 'LuaJIT',
-          path = runtime_path,
-        },
-        diagnostics = {
-          globals = { 'vim' },
         },
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
+          checkThirdParty = false,
+          library = {
+            vim.env.VIMRUNTIME,
+            vim.env.VIMRUNTIME .. "/lua",
+          },
         },
         telemetry = {
           enable = false,
@@ -208,7 +202,6 @@ for k, v in pairs(lspservers) do
     settings = v.settings
   end
   lspconfig[name].setup {
-    on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     },
@@ -241,7 +234,11 @@ require('nvim-web-devicons').setup({
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     'go', 'lua', 'c', 'python', 'rust',
-  }
+  },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
 })
 
 require('ibl').setup({
