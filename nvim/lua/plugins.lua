@@ -33,6 +33,9 @@ require("colorizer").setup()
 
 local luasnip = require("luasnip")
 
+-- Used for icons in completion menu based on LSP kind.
+local lspkind = require("lspkind")
+
 -- Automatic completion
 local cmp = require("cmp")
 cmp.setup({
@@ -70,6 +73,8 @@ cmp.setup({
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -77,6 +82,8 @@ cmp.setup({
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
@@ -89,7 +96,14 @@ cmp.setup({
     { name = "buffer" },
   }, {
     { name = "path" },
-  })
+  }),
+  -- Icons
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      maxwidth = 50,
+    }),
+  },
 })
 
 -- Search and command completion
@@ -108,36 +122,28 @@ cmp.setup.cmdline(":", {
   })
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-)
-
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local bufnr = args.buf
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-    for key, fn in pairs({
-      ["<space>e"]  = vim.diagnostic.open_float,
-      ["[d"]        = vim.diagnostic.goto_prev,
-      ["]d"]        = vim.diagnostic.goto_next,
-      ["<space>q"]  = vim.diagnostic.setloclist,
-      ["gD"]        = vim.lsp.buf.declaration,
-      ["gd"]        = vim.lsp.buf.definition,
-      ["<C-]>"]     = vim.lsp.buf.definition,
-      ["gy"]        = vim.lsp.buf.type_definition,
-      ["K"]         = vim.lsp.buf.hover,
-      ["gi"]        = vim.lsp.buf.implementation,
-      ["<C-k>"]     = vim.lsp.buf.signature_help,
-      ["<space>f"]  = function() vim.lsp.buf.format({ async = false }) end,
-      ["<space>rn"] = vim.lsp.buf.rename,
-      ["<space>ca"] = vim.lsp.buf.code_action,
-      ["gr"]        = vim.lsp.buf.references,
-    }) do
-      vim.keymap.set("n", key, fn, {
-        buffer = bufnr, noremap = true, silent = false,
-      })
-    end
+    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+    local opts = { buffer = bufnr, noremap = true, silent = false }
+    local format_sync = function() vim.lsp.buf.format({ async = false }) end
+    vim.keymap.set("n",          "<space>e",  vim.diagnostic.open_float,   opts)
+    vim.keymap.set("n",          "[d",        vim.diagnostic.goto_prev,    opts)
+    vim.keymap.set("n",          "]d",        vim.diagnostic.goto_next,    opts)
+    vim.keymap.set("n",          "<space>q",  vim.diagnostic.setloclist,   opts)
+    vim.keymap.set("n",          "gD",        vim.lsp.buf.declaration,     opts)
+    vim.keymap.set("n",          "gd",        vim.lsp.buf.definition,      opts)
+    vim.keymap.set("n",          "<C-]>",     vim.lsp.buf.definition,      opts)
+    vim.keymap.set("n",          "gy",        vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n",          "K",         vim.lsp.buf.hover,           opts)
+    vim.keymap.set("n",          "gi",        vim.lsp.buf.implementation,  opts)
+    vim.keymap.set("n",          "<C-k>",     vim.lsp.buf.signature_help,  opts)
+    vim.keymap.set("n",          "<space>f",  format_sync,                 opts)
+    vim.keymap.set("n",          "<space>rn", vim.lsp.buf.rename,          opts)
+    vim.keymap.set("n",          "gr",        vim.lsp.buf.references,      opts)
+    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action,     opts)
   end,
 })
 
@@ -193,13 +199,12 @@ local lspservers = {
             vim.env.VIMRUNTIME .. "/lua",
           },
         },
-        telemetry = {
-          enable = false,
-        },
       },
     },
   },
 }
+
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 for k, v in pairs(lspservers) do
@@ -218,17 +223,6 @@ for k, v in pairs(lspservers) do
     settings = settings,
   }
 end
-
--- LSP icons
-local lspkind = require("lspkind")
-cmp.setup {
-  formatting = {
-    format = lspkind.cmp_format({
-      mode = "symbol_text",
-      maxwidth = 50,
-    }),
-  },
-}
 
 require("nvim-tree").setup({
   view = {
