@@ -10,6 +10,25 @@ vim.g.go_code_completion_enabled = 0
 vim.g.go_highlight_diagnostic_errors = 0
 vim.g.NERDDefaultAlign = 'left'
 
+vim.keymap.set("n",          "<F4>",             ":NvimTreeToggle<CR>",              { silent = true })
+vim.keymap.set("n",          "-",                ":NvimTreeFocus<CR>",               { silent = true })
+vim.keymap.set("n",          "<leader>b",        ":Buffers<CR>")
+vim.keymap.set("n",          "<leader>f",        ":Files<CR>")
+vim.keymap.set("n",          "<C-p>",            ":GFiles -c -o --exclude-standard<CR>")
+vim.keymap.set("n",          "<leader>gb",       ":Git blame<CR>")
+vim.keymap.set("n",          "<leader>gc",       ":Git commit<CR>")
+vim.keymap.set("n",          "<leader>gd",       ":Gdiffsplit<CR>")
+vim.keymap.set("n",          "<leader>gs",       ":Git<CR>")
+vim.keymap.set({ "n", "v" }, "<leader>r",        "<Plug>NERDCommenterComment",       { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>t",        "<Plug>NERDCommenterUncomment",     { remap = true })
+vim.keymap.set({ "n", "v" }, "<C-_>",            "<Plug>NERDCommenterToggle",        { remap = true })
+vim.keymap.set({ "n", "v" }, "<C-/>",            "<Plug>NERDCommenterToggle",        { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>a=",       ":Tabularize /=<CR>",               { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>a,",       ":Tabularize /,\\zs/l0l1<CR>",      { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>a:",       ":Tabularize /:\\zs/l0l1<CR>",      { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>a;",       ":Tabularize /;\\zs/l0l1<CR>",      { remap = true })
+vim.keymap.set({ "n", "v" }, "<leader>a<space>", ":Tabularize /\\S\\ \\zs/l0l1<CR>", { remap = true })
+
 require('colorizer').setup()
 
 local luasnip = require 'luasnip'
