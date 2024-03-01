@@ -196,7 +196,7 @@ command! HScratch call <SID>CreateSplitScratch(1)
 command! VScratch call <SID>CreateSplitScratch(2)
 command! Hints    call <SID>ToggleHints()
 command! RemoveTrailing %s/\s\+$//
-command! Sqlup    s/\<\(select\|from\|where\|and\|or\|order\|by\|asc\|desc\|as\|create\|is\|null\)\>/\U\1/g
+command! Sqlup    %s/\<\(add\|all\|alter\|and\|any\|array\|as\|asc\|at\|begin\|between\|break\|by\|cascade\|case\|cast\|check\|checkpoint\|close\|cluster\|clustered\|coalesce\|collate\|column\|commit\|compute\|constraint\|contains\|containstable\|continue\|convert\|create\|cross\|current\|cursor\|declare\|default\|define\|delete\|desc\|distinct\|drop\|dump\|else\|end\|enum\|escape\|except\|exclude\|exec\|execute\|exists\|extract\|false\|fetch\|following\|for\|foreign\|from\|full\|function\|goto\|grant\|group\|grouping\|groups\|hash\|having\|if\|ignore\|in\|index\|inner\|insert\|intersect\|interval\|into\|is\|join\|key\|kill\|left\|like\|limit\|load\|lookup\|merge\|new\|no\|not\|null\|nullif\|nulls\|of\|off\|offsets\|on\|open\|option\|or\|order\|outer\|over\|partition\|plan\|preceding\|primary\|procedure\|range\|recursive\|references\|replication\|respect\|restore\|restrict\|return\|right\|rollback\|rollup\|row\|rowcount\|rows\|schema\|select\|set\|some\|struct\|table\|then\|to\|top\|transaction\|trigger\|true\|truncate\|unbounded\|union\|unique\|unnest\|update\|use\|using\|values\|varying\|view\|when\|where\|while\|window\|with\|within\)\>/\U\1/g
 command! O :!xdg-open %:p:h
 command! T split | terminal
 command! Format lua vim.lsp.buf.formatting_sync()
