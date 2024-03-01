@@ -141,6 +141,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+-- Format these file types before write.
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.rs" },
+  callback = function()
+    vim.lsp.buf.format({ timeout_ms = 500, async = false })
+  end,
+})
+
 -- LSP config
 local lspservers = {
   'clangd', 'gopls', 'pyright', 'ruff_lsp',
