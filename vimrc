@@ -7,7 +7,6 @@ set showmode
 set laststatus=2
 set statusline=%f\ %(%M\ %)%(%R\ %)%(\ \ %{&ft}\ %)%(%{&paste?'\ \ PASTE':''}%)%=\ %l,%c
 set history=100
-set dir=$HOME/.vim/swp
 set backspace=indent,eol,start
 set number
 set norelativenumber
@@ -53,13 +52,8 @@ endif
 set hidden
 set updatetime=1000
 
-" vim/nvim split
-if has('nvim')
-  set inccommand=nosplit
-else
-  set ttymouse=sgr
-  packadd! matchit
-end
+set ttymouse=sgr
+packadd! matchit
 
 syntax on
 filetype plugin indent on
@@ -121,8 +115,6 @@ xnoremap          p          pgvy
 inoremap <silent> <Del>      <C-O>x
 nnoremap <silent> <BS>       :nohlsearch<CR>
 nnoremap <silent> <F2>       :call <SID>ToggleHints()<CR>
-nnoremap <silent> <F4>       :NvimTreeToggle<CR>
-nnoremap <silent> -          :NvimTreeFocus<CR>
 nnoremap          <F5>       :make! debug<CR>
 nnoremap          <F6>       :make! test<CR>
 nnoremap          <F7>       :make! run<CR>
@@ -138,35 +130,6 @@ nnoremap          <F12>      :%y<CR>
 " Terminal mode bindings
 tnoremap          <Esc>      <C-\><C-n>
 
-" Plugin mappings
-nnoremap          <leader>b  :Buffers<CR>
-nnoremap          <leader>f  :Files<CR>
-nnoremap          <C-p>      :GFiles -c -o --exclude-standard<CR>
-nnoremap          <leader>gb :Git blame<CR>
-nnoremap          <leader>gc :Git commit<CR>
-nnoremap          <leader>gd :Gdiffsplit<CR>
-nnoremap          <leader>gs :Git<CR>
-nmap              <leader>r  <Plug>NERDCommenterComment
-vmap              <leader>r  <Plug>NERDCommenterComment
-nmap              <leader>t  <Plug>NERDCommenterUncomment
-vmap              <leader>t  <Plug>NERDCommenterUncomment
-nmap              <C-_>      <Plug>NERDCommenterToggle
-vmap              <C-_>      <Plug>NERDCommenterToggle
-nmap              <C-/>      <Plug>NERDCommenterToggle
-vmap              <C-/>      <Plug>NERDCommenterToggle
-nmap              <leader>a= :Tabularize /=<CR>
-vmap              <leader>a= :Tabularize /=<CR>
-nmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
-vmap              <leader>a, :Tabularize /,\zs/l0l1<CR>
-nmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
-vmap              <leader>a: :Tabularize /:\zs/l0l1<CR>
-nmap              <leader>a; :Tabularize /;\zs/l0l1<CR>
-vmap              <leader>a; :Tabularize /;\zs/l0l1<CR>
-nmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
-vmap              <leader>a<space> :Tabularize /\S\ \zs/l0l1<CR>
-
-" Possible alternative to avoid the noisy column
-" call matchadd('ColorColumn', '\%' . string(&textwidth+1) . 'v', 100)
 function! s:ToggleHints()
   if &colorcolumn == ''
     set colorcolumn=+1
@@ -196,30 +159,8 @@ command! HScratch call <SID>CreateSplitScratch(1)
 command! VScratch call <SID>CreateSplitScratch(2)
 command! Hints    call <SID>ToggleHints()
 command! RemoveTrailing %s/\s\+$//
-command! Sqlup    %s/\<\(add\|all\|alter\|and\|any\|array\|as\|asc\|at\|begin\|between\|break\|by\|cascade\|case\|cast\|check\|checkpoint\|close\|cluster\|clustered\|coalesce\|collate\|column\|commit\|compute\|constraint\|contains\|containstable\|continue\|convert\|create\|cross\|current\|cursor\|declare\|default\|define\|delete\|desc\|distinct\|drop\|dump\|else\|end\|enum\|escape\|except\|exclude\|exec\|execute\|exists\|extract\|false\|fetch\|following\|for\|foreign\|from\|full\|function\|goto\|grant\|group\|grouping\|groups\|hash\|having\|if\|ignore\|in\|index\|inner\|insert\|intersect\|interval\|into\|is\|join\|key\|kill\|left\|like\|limit\|load\|lookup\|merge\|new\|no\|not\|null\|nullif\|nulls\|of\|off\|offsets\|on\|open\|option\|or\|order\|outer\|over\|partition\|plan\|preceding\|primary\|procedure\|range\|recursive\|references\|replication\|respect\|restore\|restrict\|return\|right\|rollback\|rollup\|row\|rowcount\|rows\|schema\|select\|set\|some\|struct\|table\|then\|to\|top\|transaction\|trigger\|true\|truncate\|unbounded\|union\|unique\|unnest\|update\|use\|using\|values\|varying\|view\|when\|where\|while\|window\|with\|within\)\>/\U\1/g
 command! O :!xdg-open %:p:h
-command! T split | terminal
-command! Format lua vim.lsp.buf.formatting_sync()
-
-" Plugin settings
-let g:netrw_liststyle = 3 " tree
-let g:netrw_usetab = 1 " enable c-tab
-let g:ftplugin_sql_omni_key = '<C-K>'
-let g:go_def_mapping_enabled = 0
-let g:go_fmt_command = 'goimports'
-let g:go_fmt_experimental = 1
-let g:go_doc_max_height = 40
-let g:go_code_completion_enabled = 0
-let g:go_highlight_diagnostic_errors = 0
-let NERDDefaultAlign = 'left'
-
-" Hacky matching brace insertion
-autocmd FileType c,go,rust inoremap {<CR> {<CR>}<Esc>ko
 
 runtime! ftplugin/man.vim " For :Man and <leader>K
-
-if has('nvim')
-  lua require 'init'
-end
 
 silent! helptags ALL

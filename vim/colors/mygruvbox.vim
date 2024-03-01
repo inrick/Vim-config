@@ -17,8 +17,8 @@ hi Conceal          guifg=fg      guibg=NONE    gui=NONE
 hi Constant         guifg=#427b58 guibg=NONE    gui=NONE
 hi Number           guifg=#8f3f71 guibg=NONE    gui=NONE
 hi String           guifg=#427b58 guibg=NONE    gui=NONE
-hi lCursor          guifg=NONE    guibg=NONE    gui=NONE
-hi Cursor           guifg=NONE    guibg=NONE    gui=NONE
+hi lCursor          guifg=#fbf1c7 guibg=#000000 gui=NONE
+hi Cursor           guifg=#fbf1c7 guibg=#000000 gui=NONE
 hi CursorIM         guifg=NONE    guibg=NONE    gui=NONE
 hi CursorColumn     guifg=fg      guibg=#ebdbb2 gui=NONE
 hi CursorLine       guifg=fg      guibg=#ebdbb2 gui=NONE
@@ -87,49 +87,5 @@ hi! link diffAdded   DiffAdd
 hi! link diffRemoved DiffDelete
 hi! link diffChanged DiffChange
 
-" LSP
-hi DiagnosticError          guifg=#9d0006 guibg=NONE    gui=NONE
-hi DiagnosticSignError      guifg=#9d0006 guibg=#ebdbb2 gui=NONE
-hi DiagnosticWarn           guifg=#b57614 guibg=NONE    gui=NONE
-hi DiagnosticSignWarn       guifg=#b57614 guibg=#ebdbb2 gui=NONE
-hi DiagnosticInfo           guifg=#458588 guibg=NONE    gui=NONE
-hi DiagnosticSignInfo       guifg=#458588 guibg=#ebdbb2 gui=NONE
-hi DiagnosticHint           guifg=#458588 guibg=NONE    gui=NONE
-hi DiagnosticSignHint       guifg=#458588 guibg=#ebdbb2 gui=NONE
-hi LspReferenceText         guifg=#b57614 guibg=NONE    gui=NONE
-hi LspReferenceRead         guifg=#b57614 guibg=NONE    gui=NONE
-hi LspReferenceWrite        guifg=#b57614 guibg=NONE    gui=NONE
-
-" Don't highlight the code different, it becomes too difficult to read.
-hi DiagnosticUnderlineError guifg=NONE    guibg=NONE    gui=NONE
-hi DiagnosticUnderlineWarn  guifg=NONE    guibg=NONE    gui=NONE
-hi DiagnosticUnderlineInfo  guifg=NONE    guibg=NONE    gui=NONE
-hi DiagnosticUnderlineHint  guifg=NONE    guibg=NONE    gui=NONE
-
 " Language additions
 hi! link luaFunction Special
-
-" Plugins
-hi! link NvimTreeExecFile         Special
-hi! link NvimTreeSpecialFile      Special
-hi! link NvimTreeRootFolder       LineNr
-hi! link NvimTreeFolderIcon       LineNr
-hi! link NvimTreeIndentMarker     LineNr
-hi! link NvimTreeGitDirty         LineNr
-hi! link NvimTreeGitStaged        LineNr
-hi! link NvimTreeGitMerge         LineNr
-hi! link NvimTreeGitRenamed       LineNr
-hi! link NvimTreeGitNew           LineNr
-hi! link NvimTreeGitDeleted       LineNr
-hi! link NvimTreeSymlink          Normal
-hi! link NvimTreeFolderName       Normal
-hi! link NvimTreeEmptyFolderName  Normal
-hi! link NvimTreeOpenedFolderName Normal
-hi! link NvimTreeOpenedFile       Normal
-hi! link NvimTreeSpecialFile      Normal
-hi! link NvimTreeImageFile        Normal
-hi! link NvimTreeWindowPicker     TabLineSel
-
-hi! link FocusedSymbol            TabLine
-
-hi IndentBlanklineIndent          guifg=#ebdbb2 guibg=NONE gui=NONE
