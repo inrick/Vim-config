@@ -162,24 +162,19 @@ local lspservers = {
     -- See https://rust-analyzer.github.io/manual.html
     settings = {
       ["rust-analyzer"] = {
-        assist = {
-          importGranularity = "module",
-          importPrefix = "self",
+        imports = {
+          granularity = {
+            group = "module",
+          },
+          prefix = "self",
         },
         cargo = {
-          allFeatures = true,
-          loadOutDirsFromCheck = true,
+          features = "all",
         },
-        --checkOnSave = {
-          --command = "clippy",
-        --},
         completion = {
           autoimport = {
             enable = true,
           },
-        },
-        procMacro = {
-          enable = true,
         },
       },
     },
