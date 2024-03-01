@@ -1,0 +1,10 @@
+--vim.opt_local.foldmethod = "syntax"
+--vim.opt_local.foldnestmax = 1
+vim.opt_local.copyindent = true
+vim.opt_local.preserveindent = true
+vim.opt_local.expandtab = false
+vim.opt_local.shiftwidth = 4
+vim.opt_local.softtabstop = 4
+vim.opt_local.tabstop = 4
+vim.opt_local.cindent = true
+vim.opt_local.cinoptions = { "g0", ":0", "l1", "(0", "W1s" }

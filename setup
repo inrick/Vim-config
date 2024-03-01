@@ -2,7 +2,7 @@
 readonly SCRIPT=${0:a}
 readonly SOURCE=${SCRIPT%/*}
 readonly TARGET=$HOME
-readonly PLUGINS=$SOURCE/vim/pack/plugins/start
+readonly PLUGINS=$SOURCE/nvim/pack/plugins/start
 
 typeset -a repos
 readonly repos=(
@@ -77,8 +77,7 @@ install() {
   mkdir -p "$SOURCE/vim/swp"
   ln -s "$SOURCE/vim"   "$TARGET/.vim"
   ln -s "$SOURCE/vimrc" "$TARGET/.vimrc"
-  ln -s "$SOURCE/vim"   "$TARGET/.config/nvim"
-  ln -s "$SOURCE/vimrc" "$TARGET/.config/nvim/init.vim"
+  ln -s "$SOURCE/nvim"  "$TARGET/.config/nvim"
 
   install_plugins false
 }

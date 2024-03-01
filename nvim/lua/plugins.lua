@@ -1,3 +1,15 @@
+--------------------------
+-- Plugin configuration --
+--------------------------
+
+vim.g.go_def_mapping_enabled = 0
+vim.g.go_fmt_command = 'goimports'
+vim.g.go_fmt_experimental = 1
+vim.g.go_doc_max_height = 40
+vim.g.go_code_completion_enabled = 0
+vim.g.go_highlight_diagnostic_errors = 0
+vim.g.NERDDefaultAlign = 'left'
+
 require('colorizer').setup()
 
 local luasnip = require 'luasnip'
