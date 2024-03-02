@@ -10,11 +10,25 @@ vim.g.go_code_completion_enabled = 0
 vim.g.go_highlight_diagnostic_errors = 0
 vim.g.NERDDefaultAlign = "left"
 
+local fzf = require("fzf-lua")
+fzf.setup({
+  "fzf-native",
+  fzf_opts = {
+    ["--layout"] = "default",
+  },
+  git = {
+    files = {
+      prompt = "git> ",
+      cmd = "git ls-files -c -o --exclude-standard",
+    },
+  },
+})
+
 vim.keymap.set("n",          "<F4>",             ":NvimTreeToggle<CR>",              { silent = true })
 vim.keymap.set("n",          "-",                ":NvimTreeFocus<CR>",               { silent = true })
-vim.keymap.set("n",          "<leader>b",        ":Buffers<CR>")
-vim.keymap.set("n",          "<leader>f",        ":Files<CR>")
-vim.keymap.set("n",          "<C-p>",            ":GFiles -c -o --exclude-standard<CR>")
+vim.keymap.set("n",          "<leader>b",        fzf.buffers)
+vim.keymap.set("n",          "<leader>f",        fzf.files)
+vim.keymap.set("n",          "<C-p>",            fzf.git_files)
 vim.keymap.set("n",          "<leader>gb",       ":Git blame<CR>")
 vim.keymap.set("n",          "<leader>gc",       ":Git commit<CR>")
 vim.keymap.set("n",          "<leader>gd",       ":Gdiffsplit<CR>")

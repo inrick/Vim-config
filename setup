@@ -8,7 +8,7 @@ typeset -a repos
 readonly repos=(
   'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
-  'https://github.com/junegunn/fzf.vim'
+  'https://github.com/ibhagwan/fzf-lua'
   'https://github.com/nvim-tree/nvim-tree.lua'
   'https://github.com/nvim-tree/nvim-web-devicons'
   'https://github.com/hrsh7th/nvim-cmp'
