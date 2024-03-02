@@ -51,12 +51,12 @@ vim.opt.hidden = true
 vim.opt.updatetime = 1000
 vim.opt.inccommand = "nosplit"
 
-vim.cmd("syntax on")
-vim.cmd("filetype plugin indent on")
+vim.cmd.syntax("on")
+vim.cmd.filetype("plugin indent on")
 vim.opt.termguicolors = true
 vim.opt.visualbell = false
 vim.opt.background = "light"
-vim.cmd("colorscheme mygruvbox")
+vim.cmd.colorscheme("mygruvbox")
 
 if vim.fn.executable("rg") == 1 then
   vim.opt.grepprg = "rg -i --vimgrep $*"
@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
-vim.cmd("silent! helptags ALL")
+vim.cmd.helptags("ALL")
 
 require("mappings")
 require("plugins")
