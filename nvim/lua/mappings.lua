@@ -9,6 +9,7 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("c", "<C-A>",     "<Home>")
 vim.keymap.set("c", "<C-F>",     "<Right>")
 vim.keymap.set("c", "<C-B>",     "<Left>")
+vim.keymap.set("c", "<C-D>",     "<Del>")
 vim.keymap.set("c", "<Esc>b",    "<S-Left>")
 vim.keymap.set("c", "<Esc>f",    "<S-Right>")
 vim.keymap.set("c", "<Esc>p",    "<Up>")
