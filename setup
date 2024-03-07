@@ -2,13 +2,13 @@
 readonly SCRIPT=${0:a}
 readonly SOURCE=${SCRIPT%/*}
 readonly TARGET=$HOME
-readonly PLUGINS=$SOURCE/vim/pack/plugins/start
+readonly PLUGINS=$SOURCE/nvim/pack/plugins/start
 
 typeset -a repos
 readonly repos=(
   'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
-  'https://github.com/junegunn/fzf.vim'
+  'https://github.com/ibhagwan/fzf-lua'
   'https://github.com/nvim-tree/nvim-tree.lua'
   'https://github.com/nvim-tree/nvim-web-devicons'
   'https://github.com/hrsh7th/nvim-cmp'
@@ -60,8 +60,6 @@ install_plugins() {
   done
   if command -v nvim > /dev/null; then
     nvim "+helptags ALL" +qall
-  else
-    vim "+helptags ALL" +qall
   fi
 }
 
@@ -77,8 +75,7 @@ install() {
   mkdir -p "$SOURCE/vim/swp"
   ln -s "$SOURCE/vim"   "$TARGET/.vim"
   ln -s "$SOURCE/vimrc" "$TARGET/.vimrc"
-  ln -s "$SOURCE/vim"   "$TARGET/.config/nvim"
-  ln -s "$SOURCE/vimrc" "$TARGET/.config/nvim/init.vim"
+  ln -s "$SOURCE/nvim"  "$TARGET/.config/nvim"
 
   install_plugins false
 }
