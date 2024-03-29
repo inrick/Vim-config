@@ -234,6 +234,15 @@ for k, v in pairs(lspservers) do
 end
 
 require("nvim-tree").setup({
+  on_attach = function(bufnr)
+    local api = require("nvim-tree.api")
+
+    -- Default mappings
+    api.config.mappings.default_on_attach(bufnr)
+
+    -- Keep for scrolling window
+    vim.keymap.set("n", "<C-e>", "<C-e>", { buffer = bufnr, silent = true })
+  end,
   view = {
     width = 35,
   },
