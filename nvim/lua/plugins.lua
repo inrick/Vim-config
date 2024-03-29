@@ -24,8 +24,38 @@ fzf.setup({
   },
 })
 
-vim.keymap.set("n",          "<F4>",             ":NvimTreeToggle<CR>",              { silent = true })
-vim.keymap.set("n",          "-",                ":NvimTreeFocus<CR>",               { silent = true })
+local oil = require("oil")
+oil.setup({
+  default_file_explorer = true,
+  columns = {
+    "permissions",
+    "size",
+    "mtime",
+    "icon",
+  },
+  use_default_keymaps = false,
+  keymaps = {
+    ["g?"] = "actions.show_help",
+    ["<CR>"] = "actions.select",
+    ["<C-v>"] = "actions.select_vsplit",
+    --["<C-s>"] = "actions.select_split",
+    ["<C-t>"] = "actions.select_tab",
+    ["<S-p>"] = "actions.preview",
+    ["<C-c>"] = "actions.close",
+    ["<C-l>"] = "actions.refresh",
+    ["<BS>"] = "actions.parent",
+    ["-"] = "actions.parent",
+    ["_"] = "actions.open_cwd",
+    ["`"] = "actions.cd",
+    ["~"] = "actions.tcd",
+    ["gs"] = "actions.change_sort",
+    ["gx"] = "actions.open_external",
+    ["g."] = "actions.toggle_hidden",
+    ["<C-h>"] = "actions.toggle_hidden",
+  },
+})
+
+vim.keymap.set("n",          "-",                oil.open)
 vim.keymap.set("n",          "<leader>b",        fzf.buffers)
 vim.keymap.set("n",          "<leader>f",        fzf.files)
 vim.keymap.set("n",          "<C-p>",            fzf.git_files)
@@ -232,21 +262,6 @@ for k, v in pairs(lspservers) do
     settings = settings,
   }
 end
-
-require("nvim-tree").setup({
-  on_attach = function(bufnr)
-    local api = require("nvim-tree.api")
-
-    -- Default mappings
-    api.config.mappings.default_on_attach(bufnr)
-
-    -- Keep for scrolling window
-    vim.keymap.set("n", "<C-e>", "<C-e>", { buffer = bufnr, silent = true })
-  end,
-  view = {
-    width = 35,
-  },
-})
 
 require("nvim-web-devicons").setup({
   color_icons = false,
