@@ -40,7 +40,6 @@ vim.opt.foldnestmax = 2
 vim.opt.wildmenu = true
 vim.opt.wildmode = { "list:longest", "full" }
 vim.opt.wildignorecase = true
-vim.o.wildcharm = "<C-Z>"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.tags = "./tags;"
