@@ -110,6 +110,8 @@ local function colors(p)
     Whitespace       = { fg = p.gray,   bg = none     },
     WildMenu         = { fg = p.gray,   bg = p.bg,    reverse = true },
 
+    Function = { link = "Identifier" },
+
     -- LSP
     DiagnosticError     = { fg = p.red,    bg = none    },
     DiagnosticSignError = { fg = p.red,    bg = p.bgalt },
