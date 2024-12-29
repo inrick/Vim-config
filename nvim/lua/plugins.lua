@@ -269,7 +269,7 @@ require("nvim-web-devicons").setup({
 
 require("nvim-treesitter.configs").setup({
   ensure_installed = {
-    "go", "lua", "c", "python", "rust",
+    "c", "cpp", "go", "lua", "python", "rust",
   },
   highlight = {
     enable = true,
