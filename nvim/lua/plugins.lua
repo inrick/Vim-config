@@ -201,7 +201,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- LSP config
 local lspservers = {
-  "clangd", "gopls", "pyright", "ruff_lsp",
+  "clangd", "gopls", "pyright", "ruff",
   rust_analyzer = {
     -- See https://rust-analyzer.github.io/manual.html
     settings = {
