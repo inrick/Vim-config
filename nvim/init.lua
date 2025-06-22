@@ -10,6 +10,7 @@ vim.opt.history = 100
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.number = true
 vim.opt.relativenumber = false
+vim.opt.signcolumn = "number"
 vim.opt.showmatch = false
 vim.opt.mouse = "a"
 vim.opt.scrolloff = 3
