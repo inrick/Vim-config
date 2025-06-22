@@ -212,12 +212,17 @@ local lspservers = {
           },
           prefix = "self",
         },
-        cargo = {
-          features = "all",
-        },
+        --cargo = {
+        --  features = "all",
+        --},
         completion = {
           autoimport = {
             enable = true,
+          },
+        },
+        check = {
+          ignore = {
+            "dead_code", "unused_imports", "unused_variables",
           },
         },
       },
