@@ -204,7 +204,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- LSP config
 local lspservers = {
-  "clangd", "gopls", "pyright", "ruff",
+  --"clangd",
+  "gopls",
+  "pyright",
+  "ruff",
   rust_analyzer = {
     -- See https://rust-analyzer.github.io/manual.html
     settings = {
@@ -253,7 +256,6 @@ local lspservers = {
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lspconfig = require("lspconfig")
 for k, v in pairs(lspservers) do
   local name, settings
   if type(k) == "number" then
@@ -262,13 +264,14 @@ for k, v in pairs(lspservers) do
     name = k
     settings = v.settings
   end
-  lspconfig[name].setup {
+  vim.lsp.enable(name)
+  vim.lsp.config(name, {
     flags = {
       debounce_text_changes = 150,
     },
     capabilities = capabilities,
     settings = settings,
-  }
+  })
 end
 
 require("nvim-web-devicons").setup({
