@@ -79,9 +79,19 @@ vim.g.netrw_liststyle = 3  -- tree
 vim.g.netrw_usetab = 1     -- enable c-tab
 vim.g.ftplugin_sql_omni_key = '<C-K>'
 
+vim.cmd [[
+let g:python_indent = {}
+let g:python_indent.disable_parentheses_indenting = v:false
+let g:python_indent.closed_paren_align_last_line = v:false
+let g:python_indent.searchpair_timeout = 150
+let g:python_indent.continue = "shiftwidth()"
+let g:python_indent.open_paren = "shiftwidth()"
+let g:python_indent.nested_paren = "shiftwidth()"
+]]
+
 -- Hacky matching brace insertion
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "go", "rust" },
+  pattern = { "c", "cpp", "go", "odin", "rust" },
   callback = function()
     vim.keymap.set("i", "{<S-CR>", "{<CR>}<Esc>ko", { buffer = true })
   end
@@ -91,3 +101,10 @@ vim.cmd.helptags("ALL")
 
 require("mappings")
 require("plugins")
+
+if vim.g.neovide then
+  vim.o.guifont = "Source Code Pro Medium:h11.5"
+  vim.g.neovide_position_animation_length = 0
+  vim.g.neovide_scroll_animation_length = 0
+  vim.g.neovide_cursor_animation_length = 0
+end

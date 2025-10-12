@@ -34,7 +34,7 @@ vim.keymap.set("n", "<F7>",       ":make! run<CR>")
 vim.keymap.set("n", "<F8>",       ":make!<CR>")
 vim.keymap.set("n", "<leader>cd", ":cd %:p:h<CR>")
 vim.keymap.set("n", "<leader>gt", ":vimgrep /TODO\\|FIXME\\|XXX/j %<CR>")
-vim.keymap.set("n", "<leader>l",  ":Grep<space>")
+--vim.keymap.set("n", "<leader>l",  ":Grep<space>")
 vim.keymap.set("n", "<C-s>",      ":update<CR>")
 vim.keymap.set("n", "<C-q>",      ":close<CR>")
 

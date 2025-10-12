@@ -56,8 +56,10 @@ oil.setup({
 })
 
 vim.keymap.set("n",          "-",                oil.open)
+vim.keymap.set("n",          "<C-h>",            oil.open)
 vim.keymap.set("n",          "<leader>b",        fzf.buffers)
 vim.keymap.set("n",          "<leader>f",        fzf.files)
+vim.keymap.set("n",          "<leader>l",        fzf.grep)
 vim.keymap.set("n",          "<C-p>",            fzf.git_files)
 vim.keymap.set("n",          "<leader>gb",       ":Git blame<CR>")
 vim.keymap.set("n",          "<leader>gc",       ":Git commit<CR>")
@@ -184,6 +186,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n",          "K",         vim.lsp.buf.hover,           opts)
     vim.keymap.set("n",          "gi",        vim.lsp.buf.implementation,  opts)
     vim.keymap.set("n",          "<C-k>",     vim.lsp.buf.signature_help,  opts)
+    vim.keymap.set("i",          "<C-k>",     vim.lsp.buf.signature_help,  opts)
     vim.keymap.set("n",          "<space>f",  format_sync,                 opts)
     vim.keymap.set("n",          "<space>rn", vim.lsp.buf.rename,          opts)
     vim.keymap.set("n",          "gr",        vim.lsp.buf.references,      opts)
