@@ -58,6 +58,17 @@ vim.opt.visualbell = false
 vim.opt.background = "light"
 vim.cmd.colorscheme("mygruvbox")
 
+-- OS specific looks
+local uname = vim.loop.os_uname()
+if uname.sysname == "Darwin" then
+  local style = vim.trim(vim.fn.system("defaults read -g AppleInterfaceStyle"))
+  if style == "Dark" then
+    vim.opt.background = "dark"
+  elseif style == "Light" then
+    vim.opt.background = "light"
+  end
+end
+
 if vim.fn.executable("rg") == 1 then
   vim.opt.grepprg = "rg -i --vimgrep $*"
   vim.opt.grepformat = "%f:%l:%c:%m"
