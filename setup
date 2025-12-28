@@ -6,7 +6,6 @@ readonly PLUGINS=$SOURCE/nvim/pack/plugins/start
 
 typeset -a repos
 readonly repos=(
-  'https://github.com/fatih/vim-go'
   'https://github.com/godlygeek/tabular'
   'https://github.com/ibhagwan/fzf-lua'
   'https://github.com/nvim-tree/nvim-web-devicons'

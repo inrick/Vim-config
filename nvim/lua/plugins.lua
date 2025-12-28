@@ -168,13 +168,26 @@ cmp.setup.cmdline(":", {
   })
 })
 
+local format_sync = function(timeout_ms)
+  -- Taken from https://go.dev/gopls/editor/vim#neovim-imports
+  local params = vim.lsp.util.make_range_params()
+  params.context = {only = {"source.organizeImports"}}
+  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 1000)
+  for cid, res in pairs(result or {}) do
+    for _, r in pairs(res.result or {}) do
+      if r.edit then
+        local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+        vim.lsp.util.apply_workspace_edit(r.edit, enc)
+      end
+    end
+  end
+  vim.lsp.buf.format({ timeout_ms = timeout_ms, async = false })
+end
+
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
-    local bufnr = args.buf
-    vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
-    local opts = { buffer = bufnr, noremap = true, silent = false }
-    local format_sync = function() vim.lsp.buf.format({ async = false }) end
+    local opts = { buffer = args.buf, noremap = true, silent = false }
     vim.keymap.set("n",          "<space>e",  vim.diagnostic.open_float,   opts)
     vim.keymap.set("n",          "[d",        vim.diagnostic.goto_prev,    opts)
     vim.keymap.set("n",          "]d",        vim.diagnostic.goto_next,    opts)
@@ -196,18 +209,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Format these file types before write.
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.rs" },
+  pattern = { "*.rs", "*.go" },
   callback = function()
-    vim.lsp.buf.format({ timeout_ms = 500, async = false })
+    format_sync(500)
   end,
 })
 
 -- LSP config
 local lspservers = {
-  --"clangd",
-  "gopls",
   "pyright",
   "ruff",
+  gopls = {
+    -- https://go.dev/gopls/settings
+  },
   rust_analyzer = {
     -- See https://rust-analyzer.github.io/manual.html
     settings = {
