@@ -292,14 +292,12 @@ require("nvim-web-devicons").setup({
   color_icons = false,
 })
 
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "c", "cpp", "go", "lua", "python", "rust",
-  },
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
+local treesitter = require("nvim-treesitter")
+treesitter.setup {
+  install_dir = vim.fn.stdpath("data") .. "/site"
+}
+treesitter.install({
+  "c", "cpp", "go", "lua", "python", "rust", "sql",
 })
 
 require("ibl").setup({
