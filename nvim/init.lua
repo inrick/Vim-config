@@ -55,7 +55,6 @@ vim.cmd.syntax("on")
 vim.cmd.filetype("plugin indent on")
 vim.opt.termguicolors = true
 vim.opt.visualbell = false
-vim.opt.background = "light"
 vim.cmd.colorscheme("mygruvbox")
 
 -- OS specific looks
